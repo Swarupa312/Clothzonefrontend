@@ -30,29 +30,33 @@ public class Cartcontroller
 	
 	@RequestMapping(value="addcart/{prodid}",method=RequestMethod.GET)
 	public String getcartpage(@PathVariable("prodid") int prodid,@RequestParam("prodqty") int prodqty,HttpSession session,Model m)
-	
 	{
+		//Cart cart=new Cart();
 		String username=(String)session.getAttribute("username");
 		System.out.println("cart page displaying");
-		if(cartDao.checkprodid(username, prodid)==true)
+		Cart cart=cartDao.checkprodid(username, prodid);
+		if(cart!=null)
 		{
 			System.out.println("fucntion IN");
 			prodqty=cartDao.increamentqty(prodqty, username, prodid);
-			System.out.println("increment");
-			Cart cart=new Cart();
+			System.out.println(cart.getProdqty());
 			cart.setProdqty(prodqty);
+			System.out.println(cart.getProdqty());
+			cartDao.insertUpdateCart(cart);	
 		}
 		else
 		{
-		Cart cart=new Cart();
+			cart=new Cart();
+		/*Cart cart=new Cart();*/
 		/*String username=(String)session.getAttribute("username");*/
 		cart.setProdid(prodid);
 		cart.setStatus("N");
 		Date date=new Date();
 		cart.setCartdate(date);
 		cart.setUname(username);
-		cart.setCartid(1001);
-		/*cart.setCartid(cartDao.getCartid(username));*/
+		System.out.println("doing");
+		/*cart.setCartid(1001);*/
+		cart.setCartid(cartDao.getCartid(username));
 		Product product=productDao.getProduct(prodid);
 		cart.setProdname(product.getProdname());
 		cart.setProdprc(product.getProdprc());
@@ -60,7 +64,9 @@ public class Cartcontroller
 		cartDao.insertUpdateCart(cart);
 		}
 		
+		
 		List<Cart> list=cartDao.getCartDetails(username);
+	
 		m.addAttribute("cartlist", list);
 		return"cart";
 		

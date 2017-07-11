@@ -25,7 +25,6 @@
      
       <div class="item">
      <img src="resources\image\Indian-Ethnic-Lookbook-4-Indian-Wedding-Looks-With-a-Black-Skirt-Perkymegs_edited-1.jpg" alt="dress2"> 
-     <font color="red" face="Curlz MT" size="25px"><p align="justify">30% DISCOUNT!!!!!</p></font>
      </div>
      
       <div class="item">
@@ -33,9 +32,18 @@
     
      </div>
      
+     <div class="item">
+     <img src="resources\image\sale.jpg" alt="dress3"> 
+    
+     </div>
+     
+     <div class="item">
+     <img src="resources\image\sale1.jpg" alt="dress3"> 
+    
+     </div>
+     
       <div class="item">
      <img src="resources\image\online-ethnic-wear-collection.jpg" alt="dress4"> 
-     <font color="red" face="Curlz MT" size="25px"><b><p align="center" >Newly arrived.......</p></b></font>
      </div>
      </div>
      <!-- Left and right controls -->

@@ -14,7 +14,8 @@ public class Pagecontroller
 	public String showMainPage(HttpSession session)
 	{
 		
-
+		boolean loggedin=false;
+		session.setAttribute("loggedin",loggedin);
 		System.out.println("--Main Page dispalying-----");
 		return "main";
 	}
@@ -61,9 +62,19 @@ public class Pagecontroller
 		return "index";
 	}
 	
-	
-	
-	
+	@RequestMapping("/logout")
+	public String showlogoutPage(HttpSession session)
+	{
+		System.out.println("--logout Page dispalying-----");
+		boolean log=(boolean)session.getAttribute("loggedin");
+		if(log)
+		{
+			log=false;
+			session.setAttribute("loggedin", log);
+		}
+		return "logout";
+	}
+
 	
 	@RequestMapping("/main")
 	public String showmain1Page()

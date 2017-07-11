@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body background="resources/image/new9.jpg">
 
@@ -56,7 +56,7 @@
 			<font size="5px">
 			<table class="table">
 			<tr bgcolor="KHAKI"><c:set var="grandtotal"  value="${subtotal}"/> 
-			<td>TOTAL PRICE RS:</td><td><c:out value="${grandtotal}"/>/-</td>
+			<td>TOTAL PRICE RS:</td><td><input type="text" name="grandtotal" value="<c:out value="${grandtotal}"/>"/>
 			</tr>
 			</table>
 			</font>

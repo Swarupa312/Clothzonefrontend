@@ -64,7 +64,7 @@ background-color: #4CAF50;
 				<input type="text" name="username" placeholder="Enter name" required />&nbsp;&nbsp;&nbsp;
 			<br>
 				<label for="password">password</label><br>
-				<input type="password" name="password"  placeholder="Enter password" required /><br>
+				<input type="password" name="password"  placeholder="Enter password"  required /><br>
 				
 				
 			

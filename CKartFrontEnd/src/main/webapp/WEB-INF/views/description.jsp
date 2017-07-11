@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <img src="<c:url value='/resources/image/logo.png'/>" width="70" height="85" align="right"/>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body background="<c:url value='/resources/image/new9.jpg'/>">
 <font color="red">

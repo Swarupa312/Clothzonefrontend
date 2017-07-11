@@ -14,9 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<c:if test="${sessionscope.loggedin}">
-
+<c:if test="${sessionScope.loggedin}">
 <img src="resources/image/logo.png" width="70" height="85" align="right">
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b>
 <br>
@@ -29,21 +27,30 @@
       <a class="navbar-brand" href="main">C-Kart</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="home">Home</a></li>
+  
+      <li class="active"><a href="main">Home</a></li>
           <li><a href="aboutus">About Us</a></li>
           <li><a href="contactme">Contact us</a></li>
+          <c:if test="${sessionScope.srole=='ROLE_ADMIN'}">
+           <li><a href="Category">Category</a></li>
+          <li><a href="product">Product</a></li>
+          <li><a href="supplier">Supplier</a></li>
+          </c:if>
+          <c:if test="${sessionScope.srole=='ROLE_USER'}">
+          <li><a href="showproduct">product page</a></li>
+        
+          </c:if>
           </ul>
            <ul class="nav navbar-nav navbar-right">
-      <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <!-- <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+      <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       <li><a href="main"> Back </a></li>
     </ul>
           </div>
-          </nav>
-          </c:if>
-          
+          </nav>   
+   </c:if>       
 
-<c:if test="${!sessionscope.loggedin}">
+<c:if test="${!sessionScope.loggedin}">
 <img src="resources/image/logo.png" width="70" height="85" align="right">
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b></center></font>
 <hr size="30px" width="100%"></hr>
@@ -53,13 +60,13 @@
       <a class="navbar-brand" href="main">C-Kart</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="home">Home</a></li>
+      <li class="active"><a href="main">Home</a></li>
           <li><a href="aboutus">About Us</a></li>
           <li><a href="contactme">Contact us</a></li>
           </ul>
            <ul class="nav navbar-nav navbar-right">
       <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="index"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li><a href="main"> Back </a></li>
       
     </ul>

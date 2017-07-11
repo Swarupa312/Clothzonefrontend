@@ -7,7 +7,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 
 <html>
 

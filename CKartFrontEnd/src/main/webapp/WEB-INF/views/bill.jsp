@@ -6,8 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
+<center>
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b></center></font>
 <hr color="black">
 <div class="container">
@@ -17,7 +19,7 @@
 	<tr>
 		<td>Cart itemID</td>
 		<td>product id</td>
-		<td> product Price</td>
+		<td>product Price</td>
 		<td>Quantity</td>
 	</tr>
 	</thead>
@@ -33,14 +35,14 @@
 			</tbody>
 			</table>
 			</div>
-	
+	<br><br>
 	<div class="table-responsive">
 <table class="table">
 <thead>
 	<tr>
 		<td>bill id</td>
 		<td>order id</td>
-		<td>cart id</td>
+		<!-- <td>cart id</td> -->
 		<td>Payment mode</td>
 		<td>Shipment address</td>
 		<td>Payment Status</td>
@@ -52,7 +54,7 @@
 		<tr>
 			<td>${orderitems.billid}</td>
 			<td>${orderitems.orderid}</td>
-			<td>${orderitems.cartid}</td>
+			<%-- <td>${orderitems.cartid}</td> --%>
 			<td>${orderitems.paymode}</td>
 			<td>${orderitems.shipmentaddress}</td>
 			<td>${orderitems.status}</td>
@@ -64,6 +66,10 @@
 			</table>
 			</div>
 	
-</div>			
+</div>
+<h3>Order will be deliver within 4 days
+<br>Thank you!!
+</h3>
+</center>			
 </body>
 </html>

@@ -48,18 +48,18 @@ background-color: #4CAF50;
 <p align="right">
 <label><font color="red"> *All fields are Necessary*</font></label><br></p>
 <label><b><font face="Garamond">Customer name</b></font></label><br>
-<input type="text" name="cname" required><br>
+<input type="text" name="cname" pattern="[a-zA-Z]" required><br>
 <label><font face="Garamond"><b>Address</b></font></label><br>
 <input type="text" name="uaddr" required><br>
 <label><font face="Garamond"><b>User Name-*Generate new user name</b></font></label><br>
-<input type="text" name="uname" required><br>
+<input type="text" name="uname" maxlength="5" required><br>
 
 <label><font face="Garamond"><b>Email Id</b></font></label><br>
 <input type="text" name="uemail" required><br>
 <label><font face="Garamond"><b> password</b></font></label><br>
 <input type="password" name="upass" required><br>
 <label><font face="Garamond"><b>Mobile no</b></font></label><br>
-<input type="text" name="umobile" required><br>
+<input type="text" name="umobile" pattern="[789][0-9]{9}" required><br>
 
 </div>
 <center>

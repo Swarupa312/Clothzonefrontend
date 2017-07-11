@@ -65,10 +65,10 @@ public class Usercontroller
 	public String loginsuccess(HttpSession session,Model m)
 	{
 		System.out.println("login  successfully");
-		boolean loggedin=true;
-		
-		session.setAttribute("loggedin",loggedin);
-
+		/*boolean loggedin=true;*/
+		boolean log=(boolean)session.getAttribute("loggedin");
+		log=true;
+		session.setAttribute("loggedin",log);
   
 		String username= SecurityContextHolder.getContext().getAuthentication().getName();
 		session.setAttribute("username",username);
@@ -81,12 +81,13 @@ public class Usercontroller
   for(GrantedAuthority role:authorities)
 	{
 	  System.out.println("Role: "+role.getAuthority()+" username "+username);
-		
-	  
+	  String srole=role.getAuthority();
+	  session.setAttribute("srole",srole);
 	if(role.getAuthority().equals("ROLE_ADMIN"))
 	{
 		
 		return "admin";
+	
 	}
 	else
 	{
