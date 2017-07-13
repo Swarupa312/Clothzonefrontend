@@ -63,7 +63,7 @@ public class Suppliercontroller
 		boolean flag=false;
 		m.addAttribute("flag",flag);
 		
-		return "supplier";
+		return "redirect:/supplier";
 		
 		
 	}

@@ -9,27 +9,29 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
-<center>
-<font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b></center></font>
+<font color="black">
 <hr color="black">
 <div class="container">
-<div class="table-responsive">
-<table class="table">
+	
+<table class="table table-bordered">
 <thead>
+<tr><td colspan="3"><h4><center>Username = ${sessionScope.username}</center></h4></td></tr>
 	<tr>
-		<td>Cart itemID</td>
-		<td>product id</td>
-		<td>product Price</td>
+		
+		<td>product name</td>
 		<td>Quantity</td>
+		<td>product Price</td>
+		
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach items="${cartitems}" var="cartlist">
+	
 		<tr>
-			<td>${cartlist.cartitemid}</td>
-			<td>${cartlist.prodid}</td>
-			<td>${cartlist.prodprc}</td>
+			<td>${cartlist.prodname}</td>
+			
 			<td>${cartlist.prodqty}</td>
+			<td>${cartlist.prodprc}</td>
 			</tr>
 			</c:forEach>			
 			</tbody>
@@ -51,6 +53,7 @@
 	</thead>
 	<tbody>
 	<c:forEach items="${orderlist}" var="orderitems">
+		
 		<tr>
 			<td>${orderitems.billid}</td>
 			<td>${orderitems.orderid}</td>
@@ -58,7 +61,7 @@
 			<td>${orderitems.paymode}</td>
 			<td>${orderitems.shipmentaddress}</td>
 			<td>${orderitems.status}</td>
-			<td>${orderitems.grandtotal}</td>
+			<td><u><strong><h3>${orderitems.grandtotal}</h3></strong></u></td>
 			
 			</tr>
 			</c:forEach>			
@@ -67,9 +70,11 @@
 			</div>
 	
 </div>
-<h3>Order will be deliver within 4 days
+<center>
+<h3>Your Order will be deliver within 4 days
 <br>Thank you!!
 </h3>
-</center>			
+</center>
+</font>			
 </body>
 </html>

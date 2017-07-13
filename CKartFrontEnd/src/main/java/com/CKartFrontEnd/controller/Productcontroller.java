@@ -82,15 +82,17 @@ public class Productcontroller {
 		
 		
 		System.out.println("image uploading");
+		
+			System.out.println(""+product.getImgpath());
 		String path="C:\\Users\\owner\\New folder\\CKartFrontEnd\\src\\main\\webapp\\resources\\prodimage\\";
 		String idpath=productDao.getProdid()+".jpg";
 		
 		System.out.println(productDao.getProdid());
 		
-		String infopath=path+idpath;
-		
-		System.out.println(infopath);
-		File f=new File(infopath);
+			String infopath=path+idpath;
+			
+			System.out.println(infopath);
+			File f=new File(infopath);
 		if (!filedet.isEmpty())
 		{
 			System.out.println("started");
@@ -113,9 +115,8 @@ public class Productcontroller {
 		{
 			System.out.println(e);
 		}
+			
 		}
-		
-		
 		
 		List<Product> prodlist=productDao.getProductDetails();
 		m.addAttribute("prodlist", prodlist);
@@ -126,7 +127,7 @@ public class Productcontroller {
 		
 	}
 	
-	@RequestMapping(value="/updateProduct/{prodid}")
+	@RequestMapping(value="/updateProduct/{prodid}")		//retrieving the product
 	public String updateProduct(@PathVariable("prodid") int prodid,Model m)
 	{
 		Product product=productDao.getProduct(prodid);
@@ -142,19 +143,56 @@ public class Productcontroller {
 		
 	}
 	
-	@RequestMapping(value="/UpdateProduct",method=RequestMethod.POST)
-	public String getupdateproduct(@PathVariable("prodid") int prodid,Model m)
+	@RequestMapping(value="/UpdateProduct",method=RequestMethod.POST)		//updating the product
+	public String getupdateproduct(Model m,@ModelAttribute("product") Product product)
 	{
-		Product product=productDao.getProduct(prodid);
-		m.addAttribute("product", product);
+		
+		/*Product product=productDao.getProduct(prodid);
+		
+		String path="C:\\Users\\owner\\New folder\\CKartFrontEnd\\src\\main\\webapp\\resources\\prodimage\\";
+		String idpath=product.getProdid()+".jpg";
+		String infopath=path+idpath;
+		
+		System.out.println(infopath);
+		File f=new File(infopath);
+	if (!filedet.isEmpty())
+	{
+		System.out.println("started");
+		try
+		{
+			byte b[]=filedet.getBytes();
+		FileOutputStream fos=new FileOutputStream(f);
+		BufferedOutputStream bos=new BufferedOutputStream(fos);
+		bos.write(b);
+		System.out.println("ended");
+		bos.close();
+		fos.close();
+		String imgpath="resources/Prodimage/"+idpath;
+		product.setImgpath(imgpath);
+		productDao.insertUpdateProduct(product);
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		}*/
+		/*Product product=productDao.getProduct(prodid);*/
+	
+		
+		productDao.insertUpdateProduct(product);
+		m.addAttribute("product",new Product());
 		m.addAttribute("catlist", this.getCatlist());
 		m.addAttribute("suplist", this.getSuplist());
 		List<Product> prodlist=productDao.getProductDetails();
 		m.addAttribute("prodlist", prodlist);
+		
 		boolean flag=false;
 		m.addAttribute("flag",flag);
-		return "product";
+		return "redirect:/product";
 	}
+	
+	
 	
 	@RequestMapping(value="/deleteProduct/{prodid}")
 	public String deleteProduct(@PathVariable("prodid") int prodid,Model m)
@@ -170,8 +208,8 @@ public class Productcontroller {
 		List<Product> prodlist=productDao.getProductDetails();
 		boolean flag=false;
 		m.addAttribute("flag",flag);
-		
-		return "product";
+		m.addAttribute("prodlist", prodlist);
+		return "redirect:/product";
 		
 	}
 	

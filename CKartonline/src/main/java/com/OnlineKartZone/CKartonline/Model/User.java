@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Table
 public class User
 {
+	
 	@Id
 	String uname;
 	boolean enabled=true;

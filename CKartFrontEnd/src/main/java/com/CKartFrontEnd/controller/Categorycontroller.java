@@ -58,13 +58,15 @@ public class Categorycontroller
 		Category category=categoryDao.getCategory(catid);
 		categoryDao.deleteCategory(category);
 		
-		List<Category> list=categoryDao.getCategoryDetails();
-		m.addAttribute("catdetail",list);
+		Category category1=new Category();
+		m.addAttribute("category", category1);
+		List<Category> catlist=categoryDao.getCategoryDetails();
 		
 		boolean flag=false;
 		m.addAttribute("flag",flag);
+		m.addAttribute("catdetail",catlist);
 		
-		return "Category";
+		return "redirect:/Category";
 	}
 	
 	@RequestMapping(value="/updateCategory/{catid}")
@@ -102,6 +104,6 @@ public class Categorycontroller
 		boolean flag=false;
 		m.addAttribute("flag",flag);
 		
-		return "Category";
+		return "redirect:/Category";
 	}
 }

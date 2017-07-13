@@ -35,20 +35,19 @@ public class Cartcontroller
 		String username=(String)session.getAttribute("username");
 		System.out.println("cart page displaying");
 		Cart cart=cartDao.checkprodid(username, prodid);
-		if(cart!=null)
+		if(cart!=null)					//checking product exist or not
 		{
 			System.out.println("fucntion IN");
-			prodqty=cartDao.increamentqty(prodqty, username, prodid);
-			System.out.println(cart.getProdqty());
+			prodqty=cartDao.increamentqty(prodqty, username, prodid);	//inceament quantity of that product
+			System.out.println(cart.getProdqty()); 
 			cart.setProdqty(prodqty);
 			System.out.println(cart.getProdqty());
-			cartDao.insertUpdateCart(cart);	
+			cartDao.insertUpdateCart(cart);								//insert that updation
+			 
 		}
 		else
 		{
-			cart=new Cart();
-		/*Cart cart=new Cart();*/
-		/*String username=(String)session.getAttribute("username");*/
+			
 		cart.setProdid(prodid);
 		cart.setStatus("N");
 		Date date=new Date();
@@ -62,6 +61,7 @@ public class Cartcontroller
 		cart.setProdprc(product.getProdprc());
 		cart.setProdqty(prodqty);
 		cartDao.insertUpdateCart(cart);
+		
 		}
 		
 		
@@ -96,14 +96,15 @@ public class Cartcontroller
 	@RequestMapping(value="deletecart/{cartitemid}")
 	public String getdeletecart(@PathVariable("cartitemid") int cartitemid,Model m,HttpSession session)
 	{
-		Cart cart=cartDao.getCart(cartitemid);
-		
+			
+		 Cart cart=cartDao.getCart(cartitemid);	
 		cartDao.deleteCart(cart);
 		String username=(String)session.getAttribute("username");
 		
 		List<Cart>list=cartDao.getCartDetails(username);
 		m.addAttribute("cartlist",list);
-		return"cart";
+		
+		return"redirect:/cart";
 		
 		
 	}

@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body>
 
 <body background="resources/image/new9.jpg">
 
 <div id="container">
 <div class="row">
+<div class="col-md-6">
 <!-- <div class="col-sm-6 col-md-3"> -->
 <div class="thumbnail">
 <c:forEach items="${prodlist}" var="product">
@@ -23,11 +23,11 @@
 <div class="caption"><font color="LIGHTSALMON">
 <h2>${product.prodname}</h2>
 <h4>${product.prodprc}</h4>
-</div>
-</div>
 </font>
+</div>
 </c:forEach>
-
+</div>
+</div>
 </div>
 </div>
 </html>

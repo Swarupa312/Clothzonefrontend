@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.OnlineKartZone.CKartonline.Dao.CartDao;
 import com.OnlineKartZone.CKartonline.Dao.OrderConfirmDao;
 import com.OnlineKartZone.CKartonline.Dao.ProductDao;
+import com.OnlineKartZone.CKartonline.Dao.UserDao;
 import com.OnlineKartZone.CKartonline.Model.Cart;
 import com.OnlineKartZone.CKartonline.Model.OrderConfirm;
 import com.OnlineKartZone.CKartonline.Model.Product;
+import com.OnlineKartZone.CKartonline.Model.User;
 
 @Controller
 public class OrderConfirmcontroller 
@@ -26,6 +28,9 @@ public class OrderConfirmcontroller
 	
 	@Autowired
 	ProductDao productDao;
+	
+	@Autowired
+	UserDao userDao;
 	
 	@Autowired
 	OrderConfirmDao orderconfirmDao;
@@ -40,13 +45,25 @@ public class OrderConfirmcontroller
 		int subtotal=0;
 		for(Cart cart:cartlist)
 		{
-			Product product=new Product();
-			int proqty=productDao.reduceprod(cart.getProdid(),cart.getProdqty());
-			product.setProdqty(proqty);
+			int prodqty=productDao.reduceprod(cart.getProdid(),cart.getProdqty());	//reduce the quantity in product
+			System.out.println(prodqty);
+			if(prodqty>=0)
+			{
+			Product product=productDao.getProduct(cart.getProdid());		
+			product.setProdqty(prodqty);
+			productDao.insertUpdateProduct(product);			//set the quantity in product
+			}
+			else
+			{
+				
+			}
 			subtotal=subtotal+(cart.getProdprc()*cart.getProdqty());
 			
 		}
-		System.out.println(subtotal);
+		/*User user=userDao.getUser(username);*/
+		/*String address=user.getUaddr();
+		System.out.println(address);
+		m.addAttribute("shippingaddress",address);*/
 		m.addAttribute("subtotal", subtotal);
 		m.addAttribute("cartitems", cartlist);
 		return "orderconfirm";

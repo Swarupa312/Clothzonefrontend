@@ -62,17 +62,17 @@ public class Pagecontroller
 		return "index";
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/logout1")
 	public String showlogoutPage(HttpSession session)
 	{
 		System.out.println("--logout Page dispalying-----");
-		boolean log=(boolean)session.getAttribute("loggedin");
-		if(log)
+		boolean loggedin=(boolean)session.getAttribute("loggedin");
+		if(loggedin)
 		{
-			log=false;
-			session.setAttribute("loggedin", log);
+			loggedin=false;
+			session.setAttribute("loggedin", loggedin);
 		}
-		return "logout";
+		return "main";
 	}
 
 	
@@ -81,5 +81,12 @@ public class Pagecontroller
 	{
 		System.out.println("--Main Page dispalying-----");
 		return "main";
+	}
+	
+	@RequestMapping("/failure")
+	public String showfailurePage()
+	{
+		System.out.println("--failure Page dispalying-----");
+		return "failure";
 	}
 }

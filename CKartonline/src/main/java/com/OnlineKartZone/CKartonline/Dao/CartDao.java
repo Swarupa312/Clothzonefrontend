@@ -103,5 +103,14 @@ public class CartDao
 		  
 		  return prodqtyi;	 
 	 }
+	 
+	 public Cart getcartdetails(int cartitemid)
+		{
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from Cart where cartitemid="+cartitemid);//retrieve in list
+			Cart cart=(Cart)query.list().get(0);
+			session.close();
+			return cart;
+		}
 
 }

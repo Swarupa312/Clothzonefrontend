@@ -8,6 +8,6 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body background="resources/image/new9.jpg">
-
+<h3>you have loggedout</h3>
 </body>
 </html>

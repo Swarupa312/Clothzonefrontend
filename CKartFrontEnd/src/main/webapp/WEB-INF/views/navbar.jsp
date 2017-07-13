@@ -4,10 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet"
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <link rel="stylesheet"
  href="resources/css/bootstrapmin.css">
   <script src="resources/js/bootstrapmin.js"></script>
-  <script src="resources/js/jquerymin.js"></script>
+  <script src="resources/js/jquerymin.js"></script> -->
 <meta charset="UTF-8">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -15,7 +18,7 @@
 </head>
 <body>
 <c:if test="${sessionScope.loggedin}">
-<img src="resources/image/logo.png" width="70" height="85" align="right">
+<img src="<c:url value='/resources/image/logo.png'/>" width="70" height="85" align="right"/>
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b>
 <br>
 <h4><b>Mission,Vision,Values</b></h4>
@@ -43,8 +46,8 @@
           </ul>
            <ul class="nav navbar-nav navbar-right">
       <!-- <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-      <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      <li><a href="main"> Back </a></li>
+      <li><a href="logout1"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      <li><a href="redirect:/main"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
     </ul>
           </div>
           </nav>   
@@ -67,7 +70,7 @@
            <ul class="nav navbar-nav navbar-right">
       <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="main"> Back </a></li>
+      <li><a href="main"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
       
     </ul>
           </div>

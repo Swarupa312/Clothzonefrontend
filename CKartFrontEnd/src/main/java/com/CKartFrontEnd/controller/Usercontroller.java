@@ -66,9 +66,9 @@ public class Usercontroller
 	{
 		System.out.println("login  successfully");
 		/*boolean loggedin=true;*/
-		boolean log=(boolean)session.getAttribute("loggedin");
-		log=true;
-		session.setAttribute("loggedin",log);
+		boolean loggedin=(boolean)session.getAttribute("loggedin");
+		loggedin=true;
+		session.setAttribute("loggedin",loggedin);
   
 		String username= SecurityContextHolder.getContext().getAuthentication().getName();
 		session.setAttribute("username",username);

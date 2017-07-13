@@ -6,12 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <jsp:include page="navbar.jsp"></jsp:include>
-<body background ="resources\image\new9.jpg">
+<body background ="<c:url value="resources\image\new9.jpg"/>">
 
 
 <c:if test="${flag}">
 	<form action="${pageContext.request.contextPath}/UpdateCategory" method="post">
-   ${pageContext.request.contextPath}
+   
 </c:if>
 <c:if test="${!flag}">
 <form action="AddCategory" method="post">

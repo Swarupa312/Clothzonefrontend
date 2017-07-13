@@ -48,7 +48,8 @@
 <label class="radio-inline"><input type="radio" name="paymode" value="NetBanking"><span class="glyphicon glyphicon-piggy-bank"> NetBanking</span></label>
 <label class="radio-inline"><input type="radio" name="paymode" value="CashOnDelivery"><span class="glyphicon glyphicon-usd">CashOnDelivery</span></label><br><br>
 <label><font face="Garamond"><b>Shipment address</b></font></label><br>
-<textarea class="form-control" rows="4" name="shipmentaddress"></textarea>
+<c:set var="shipmentaddress" value="${shippingaddress}"/>
+<textarea class="form-control" rows="4" name="shipmentaddress" value="<c:out value="${shipmentaddress}"/>"></textarea>
 </font>
 	
 	<br><br>
@@ -56,7 +57,7 @@
 			<font size="5px">
 			<table class="table">
 			<tr bgcolor="KHAKI"><c:set var="grandtotal"  value="${subtotal}"/> 
-			<td>TOTAL PRICE RS:</td><td><input type="text" name="grandtotal" value="<c:out value="${grandtotal}"/>"/>
+			<td>TOTAL PRICE RS:</td><td><input type="text" name="grandtotal" value="<c:out value="${grandtotal}"/>" readonly/>
 			</tr>
 			</table>
 			</font>

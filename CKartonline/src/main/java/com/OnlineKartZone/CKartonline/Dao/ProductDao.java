@@ -32,10 +32,12 @@ public class ProductDao
 	{
 		Session session=sessionFactory.openSession();		//get Max product id
 		String maxid="select max(prodid) from Product";
+		
 		Query query=session.createQuery(maxid);
 		int prodid=(int) query.list().get(0);
 		System.out.println(prodid);
 		return prodid+1;
+		
 	}
 	
 	public Product getProduct(int prodid)				//get specific product
@@ -82,6 +84,7 @@ public class ProductDao
 		session.close();
 		return newqty;
 	}
+	
 	
 	
 
