@@ -21,7 +21,7 @@ public class Cart
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-	@GeneratedValue
+	
 	Date cartdate;
 	public int getCartitemid() {
 		return cartitemid;

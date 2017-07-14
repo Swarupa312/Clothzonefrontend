@@ -3,13 +3,19 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.SystemPropertyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.OnlineKartZone.CKartonline.Dao.UserDao;
+import com.OnlineKartZone.CKartonline.Model.User;
 @Controller
 public class Pagecontroller
 {
+	@Autowired
+	UserDao userDao;
 	@RequestMapping("/")
 	public String showMainPage(HttpSession session)
 	{
@@ -88,5 +94,23 @@ public class Pagecontroller
 	{
 		System.out.println("--failure Page dispalying-----");
 		return "failure";
+	}
+	
+	@RequestMapping("/SignInnavbar")
+	public String setnewpasswordPage(HttpSession session,Model m, @RequestParam("Uname") String Uname,@RequestParam("password") String password)
+	{
+		System.out.println("-- dispalying-----");
+		User user=userDao.getUser(Uname);
+		user.setUpass(password);
+		userDao.insertUpdateUser(user);
+		System.out.println(user.getUpass());
+		return "SignInnavbar";
+	}
+	
+	@RequestMapping("/forgotpass")
+	public String showforgotpassPage()
+	{
+		System.out.println("-- Page dispalying-----");
+		return "forgotpass";
 	}
 }

@@ -26,19 +26,19 @@
 		<tr>
 			<td><font color="LIGHTSALMON">Supplier Name</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="sname" value="${supplier.sname}" /></td>
+				<td><input type="text" name="sname" value="${supplier.sname}" required/></td>
 			</c:if>
 			<c:if test="${!flag}">
-				<td><input type="text" name="sname" /></td>
+				<td><input type="text" name="sname" required/></td>
 			</c:if>
 		</tr>
 		<tr>
 			<td><font color="LIGHTSALMON">Supplier Address</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="saddr" value="${supplier.saddr}" /></td>
+				<td><input type="text" name="saddr" value="${supplier.saddr}" required /></td>
 			</c:if>
 			<c:if test="${!flag}">
-			<td><input type="text" name="saddr" /></td>
+			<td><input type="text" name="saddr" required/></td>
 			</c:if>
 		</tr>
 		<tr>

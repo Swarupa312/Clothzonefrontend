@@ -40,14 +40,14 @@
           <li><a href="supplier">Supplier</a></li>
           </c:if>
           <c:if test="${sessionScope.srole=='ROLE_USER'}">
-          <li><a href="showproduct">product page</a></li>
+          <li><a href="<c:url value="/showproduct"/>">product page</a></li>
         
           </c:if>
           </ul>
            <ul class="nav navbar-nav navbar-right">
       <!-- <li><a href="newregistration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
       <li><a href="logout1"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      <li><a href="redirect:/main"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
+      <li><a href="<c:url value="/main"/>"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
     </ul>
           </div>
           </nav>   

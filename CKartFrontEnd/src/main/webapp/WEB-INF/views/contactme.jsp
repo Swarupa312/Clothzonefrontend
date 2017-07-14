@@ -54,7 +54,7 @@ ckartinfo3@gmail.org
 </div>
 <center>
 <div class="gallery">
-<img src="resources/image/fb.png" height="40px" width="40px"><img src="resources/image/ld.png" height="40px" width="40px">
+<a href="#"><img src="resources/image/fb.png" height="40px" width="40px"></a><a href="#"><img src="resources/image/ld.png" height="40px" width="40px"></a>
 
 </div>
 

@@ -72,6 +72,7 @@ background-color: #4CAF50;
 				<input type="button" class="cancelbtn" value="Cancel">&nbsp;&nbsp;&nbsp;
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><br>
 				<h4><b><u><a href="newregistration">New to C-Kart? Sign up</a></u></b></h4>
+				<h6><a href="forgotpass">forgot password?</a></h6>
 	
 		</div>
 		</div>

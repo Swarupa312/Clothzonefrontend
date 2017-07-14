@@ -39,10 +39,10 @@ public class OrderConfirmDao
 		return list;
 	}
 
-	public int getorderid(String uname)		//max orderid
+	public int getorderid()		//max orderid
 	{
 		Session session=sessionFactory.openSession();
-		Query query2=session.createQuery("select max(orderid) from OrderConfirm where uname='"+uname+"'");
+		Query query2=session.createQuery("select max(orderid) from OrderConfirm");
 		int orderid=(int) query2.list().get(0);
 		System.out.println(orderid);
 		return orderid+1;

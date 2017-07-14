@@ -13,15 +13,16 @@ public class CartTestCase
 		context.scan("com.OnlineKartZone.CKartonline");
 		context.refresh();
 		CartDao cartDao=(CartDao) context.getBean("cartDao");
-		
+		Date date=new Date();
 		Cart cart=new Cart();
-		cart.setCartid(1);
+		cart.setCartid(1001);
 		cart.setProdid(1);
 		cart.setProdname("SouthIndianSilk");
 		cart.setProdprc(500);
 		cart.setProdqty(5);
 		cart.setStatus("N");
-		cart.setUname("swarupa");
+		cart.setUname("AnujaM");
+		cart.setCartdate(date);
 		cartDao.insertUpdateCart(cart);
 		System.out.println("inserted cart");
 		

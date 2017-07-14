@@ -61,8 +61,8 @@ public class OrderConfirmcontroller
 			
 		}
 		/*User user=userDao.getUser(username);*/
-		/*String address=user.getUaddr();
-		System.out.println(address);
+		/*String shippingaddress=user.getUaddr();
+		System.out.println(shippingaddress);
 		m.addAttribute("shippingaddress",address);*/
 		m.addAttribute("subtotal", subtotal);
 		m.addAttribute("cartitems", cartlist);
@@ -77,7 +77,10 @@ public class OrderConfirmcontroller
 		String username=(String)session.getAttribute("username");
 		/*orderconfirm.setOrderid(2001);*/
 		/*orderconfirm.setCartid(1001);*/
-		orderconfirm.setOrderid(orderconfirmDao.getorderid(username));
+		
+		/*orderconfirm.setOrderid(5001);
+		orderconfirm.setCartid(1003);*/
+		orderconfirm.setOrderid(orderconfirmDao.getorderid());
 		orderconfirm.setCartid(cartDao.getCartid(username));
 		orderconfirm.setPaymode(paymode);
 		orderconfirm.setShipmentaddress(shipmentaddress);
@@ -89,6 +92,12 @@ public class OrderConfirmcontroller
 		m.addAttribute("orderlist", list1);
 		List<Cart> cartlist=cartDao.getCartDetails(username);
 		m.addAttribute("cartitems", cartlist);
+		List<Cart>  list2=cartDao.getCartDetails(username);
+		for(Cart cart:list2)
+		{
+			cartDao.deleteCart(cart);
+		}
+		
 		return "bill";
 		
 	}

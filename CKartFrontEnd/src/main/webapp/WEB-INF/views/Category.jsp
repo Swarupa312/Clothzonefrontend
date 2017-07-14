@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <jsp:include page="navbar.jsp"></jsp:include>
-<body background ="<c:url value="resources\image\new9.jpg"/>">
+<body background="<c:url value='/resources/image/new9.jpg'/>">
 
 
 <c:if test="${flag}">
@@ -27,19 +27,19 @@
 		<tr>
 			<td><font color="LIGHTSALMON">Category Name</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catname" value="${category.catname}" /></td>
+				<td><input type="text" name="catname" value="${category.catname}" required /></td>
 			</c:if>
 			<c:if test="${!flag}">
-				<td><input type="text" name="catname" /></td>
+				<td><input type="text" name="catname" required /></td>
 			</c:if>
 		</tr>
 		<tr>
 			<td><font color="LIGHTSALMON">Category Description</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catdesc" value="${category.catdesc}" /></td>
+				<td><input type="text" name="catdesc" value="${category.catdesc}" required/></td>
 			</c:if>
 			<c:if test="${!flag}">
-			<td><input type="text" name="catdesc" /></td>
+			<td><input type="text" name="catdesc" required/></td>
 			</c:if>
 		</tr>
 		<tr>

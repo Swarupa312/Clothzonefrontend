@@ -39,7 +39,7 @@
 			<td><input type="text" value="${cartitems.prodqty}" name="prodqty" class="form-control button-block"/></td>
 			<td>${cartitems.prodprc*cartitems.prodqty}</td>
 			<td><img src="<c:url value='/resources/Prodimage/${cartitems.prodid}.jpg'/>" height="30" width="20" /></td>
-			<td><a href="<c:url value="/deletecart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-trash"></span></a>
+			<td><a href="<c:url value="/deletedcart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-trash"></span></a>
 			
 			<input type="submit" value="Update"></td></form>
 		<%-- 	<a href="<c:url value="/updatecart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-edit"></span></a></td> --%>
@@ -60,5 +60,5 @@
 </div>
 
 </body>
-
+<jsp:include page="footer.jsp"></jsp:include>
 </html>

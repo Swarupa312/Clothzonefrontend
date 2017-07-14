@@ -67,30 +67,31 @@ public class CartDao
 	 {
 		 	Session session=sessionFactory.openSession();
 			Query query1=session.createQuery("select cartid from Cart where uname='"+uname+"'");
-			if(query1!=null)
+			if(query1.list().size()==0)
 			{
-			int cartid=(int) query1.list().get(0);
-			System.out.println(cartid);
-			return cartid;
+				Query query2=session.createQuery("select max(cartid) from Cart");
+				int cartid=(int)query2.list().get(0);
+				return cartid+1;
+			
 			}
 			else
 			{
-			Query query2=session.createQuery("select max(cartid) from Cart");
-			int cartid=(int)query2.list().get(0);
-			return cartid+1;	
+				int cartid=(int) query1.list().get(0);
+				System.out.println(cartid);
+				return cartid;
 			}
 	 }
 	 public Cart checkprodid(String uname,int prodid)
 	 {
 		 Session session=sessionFactory.openSession();
 		 Query query2=session.createQuery("from Cart where uname='"+uname+"' and prodid="+prodid);
-
+		 System.out.println(query2.list().size());
 		 if(query2.list().size()!=0)
 		 {
 			 Cart cart=(Cart)query2.list().get(0);
 			 return cart;
 		 }
-		return null;
+		  return null;
 		
 	 }
 	 @Transactional
@@ -100,7 +101,6 @@ public class CartDao
 		 Query query2=session.createQuery("select prodqty from Cart where uname='"+uname+"' and prodid="+prodid);
 		 System.out.println(query2.list().size());
 		  int prodqtyi=prodqty+(int)query2.list().get(0);
-		  
 		  return prodqtyi;	 
 	 }
 	 
@@ -112,5 +112,6 @@ public class CartDao
 			session.close();
 			return cart;
 		}
+	 
 
 }

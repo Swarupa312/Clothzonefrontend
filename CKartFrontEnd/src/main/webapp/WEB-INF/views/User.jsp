@@ -13,7 +13,7 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body background="resources/image/new9.jpg">
-
+<font color="LIGHTSALMON"><h3>welcome ${sessionScope.username}</h3></font>
 <div class="container">
 <table class="table table-striped">
 
@@ -37,4 +37,5 @@
 </div>
 
 </body>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>

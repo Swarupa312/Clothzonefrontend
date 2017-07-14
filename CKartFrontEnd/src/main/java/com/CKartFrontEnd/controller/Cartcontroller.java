@@ -27,44 +27,52 @@ public class Cartcontroller
 	@Autowired
 	ProductDao productDao;
 	
+	@RequestMapping("/cart")
+	public String showcontactmePage(HttpSession session,Model m)
+	{
+		System.out.println("--ContactUs Page dispalying-----");
+		String username=(String)session.getAttribute("username");
+		List<Cart>list=cartDao.getCartDetails(username);
+		m.addAttribute("cartlist",list);
+		return "cart";
+	}
 	
+	@SuppressWarnings("null")
 	@RequestMapping(value="addcart/{prodid}",method=RequestMethod.GET)
 	public String getcartpage(@PathVariable("prodid") int prodid,@RequestParam("prodqty") int prodqty,HttpSession session,Model m)
 	{
-		//Cart cart=new Cart();
+		
 		String username=(String)session.getAttribute("username");
 		System.out.println("cart page displaying");
-		Cart cart=cartDao.checkprodid(username, prodid);
-		if(cart!=null)					//checking product exist or not
+		Cart cart1=cartDao.checkprodid(username, prodid);
+		if(cart1!=null)					//checking product exist or not
 		{
 			System.out.println("fucntion IN");
 			prodqty=cartDao.increamentqty(prodqty, username, prodid);	//inceament quantity of that product
-			System.out.println(cart.getProdqty()); 
-			cart.setProdqty(prodqty);
-			System.out.println(cart.getProdqty());
-			cartDao.insertUpdateCart(cart);								//insert that updation
+			System.out.println(cart1.getProdqty()); 
+			cart1.setProdqty(prodqty);
+			System.out.println(cart1.getProdqty());
+			cartDao.insertUpdateCart(cart1);								//insert that updation
 			 
 		}
 		else
-		{
-			
+		{	
+		System.out.println("Entering in else");
+		Cart cart=new Cart();
 		cart.setProdid(prodid);
 		cart.setStatus("N");
 		Date date=new Date();
 		cart.setCartdate(date);
 		cart.setUname(username);
 		System.out.println("doing");
-		/*cart.setCartid(1001);*/
+		/*cart.setCartid(1002);*/
 		cart.setCartid(cartDao.getCartid(username));
 		Product product=productDao.getProduct(prodid);
 		cart.setProdname(product.getProdname());
 		cart.setProdprc(product.getProdprc());
 		cart.setProdqty(prodqty);
 		cartDao.insertUpdateCart(cart);
-		
 		}
-		
-		
 		List<Cart> list=cartDao.getCartDetails(username);
 	
 		m.addAttribute("cartlist", list);
@@ -90,22 +98,20 @@ public class Cartcontroller
 			m.addAttribute("cartlist",list);
 			
 		}	
-		return"cart";
+		return"redirect:/cart";
 	}
 	
-	@RequestMapping(value="deletecart/{cartitemid}")
+	@RequestMapping(value="/deletedcart/{cartitemid}")
 	public String getdeletecart(@PathVariable("cartitemid") int cartitemid,Model m,HttpSession session)
 	{
-			
-		 Cart cart=cartDao.getCart(cartitemid);	
+		Cart cart=cartDao.getCart(cartitemid);
+		
 		cartDao.deleteCart(cart);
 		String username=(String)session.getAttribute("username");
 		
 		List<Cart>list=cartDao.getCartDetails(username);
 		m.addAttribute("cartlist",list);
-		
-		return"redirect:/cart";
-		
+		return "redirect:/cart";
 		
 	}
 	

@@ -42,7 +42,7 @@
 			</div>
 			
 			<br><br>
-		<font color="LIGHTSALMON" size="5">
+		<font color="LIGHTSALMON" size="4">
 <label><font face="Garamond"><b>Payment Mode</b></font></label><br>
 <label class="radio-inline"><input type="radio" name="paymode" value="Creditcard"><span class="glyphicon glyphicon-credit-card"> Credit card</span></label>
 <label class="radio-inline"><input type="radio" name="paymode" value="NetBanking"><span class="glyphicon glyphicon-piggy-bank"> NetBanking</span></label>
@@ -66,4 +66,5 @@
 </div>
 </form>
 </body>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>
