@@ -7,16 +7,22 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 
 <html>
 
-<body background="<c:url value='/resources/image/new9.jpg'/>">
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
+
+
+
+
+
+
 
 <div class="table-responsive">
 <table class="table">
 <thead>
-	<tr bgcolor="DARKKHAKI">
+	<tr  bgcolor="POWDERBLUE">
 		<td>Cart itemID</td>
 		<td>product id</td>
 		<td>Cart id</td>
@@ -30,7 +36,7 @@
 	</thead>
 	<tbody>
 	<c:forEach items="${cartlist}" var="cartitems">
-		<tr bgcolor="KHAKI">
+		<tr>
 			<td>${cartitems.cartitemid}</td>
 			<td>${cartitems.prodid}</td>
 			<td>${cartitems.cartid}</td>
@@ -39,7 +45,7 @@
 			<td><input type="text" value="${cartitems.prodqty}" name="prodqty" class="form-control button-block"/></td>
 			<td>${cartitems.prodprc*cartitems.prodqty}</td>
 			<td><img src="<c:url value='/resources/Prodimage/${cartitems.prodid}.jpg'/>" height="30" width="20" /></td>
-			<td><a href="<c:url value="/deletecart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-trash"></span></a>
+			<td><a href="<c:url value="/deletedcart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;
 			
 			<input type="submit" value="Update"></td></form>
 		<%-- 	<a href="<c:url value="/updatecart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-edit"></span></a></td> --%>
@@ -52,10 +58,15 @@
 	
 	
 </table>
-<p align="left">
-<a href="<c:url value="/showproduct"/>"><span class="glyphicon glyphicon-menu-left">Continue</span></a></p>
-<p align="right">
-<a href="<c:url value="/placeorder"/>"><span class="glyphicon glyphicon-check">Placeorder</span></a></p>
+<br><br>
+<p align="center">
+<a href="<c:url value="/main"/>"><span class="glyphicon glyphicon-menu-left"><input type="submit" class="btn btn-primary" value="Continue Shopping"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="<c:url value="/placeorder"/>"><input type="submit" class="btn btn-primary" value="Place Order"></a></p>
+<%-- <p align="left">
+<a href="<c:url value="/showproduct"/>"><span class="glyphicon glyphicon-menu-left"></span></a></p> --%>
+<%-- <p align="right">
+<a href="<c:url value="/placeorder"/>"><span class="glyphicon glyphicon-check">Placeorder</span></a></p> --%>
 </center>
 </div>
 

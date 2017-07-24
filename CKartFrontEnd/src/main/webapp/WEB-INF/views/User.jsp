@@ -12,10 +12,10 @@
 <title>Insert title here</title>
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="resources/image/new9.jpg">
-<font color="LIGHTSALMON"><h3>welcome ${sessionScope.username}</h3></font>
+<body background="resources/image/bg1.jpg">
+<font color="MIDNIGHTBLUE"><h3>welcome ${sessionScope.username}</h3></font>
 <div class="container">
-<table class="table table-striped">
+<%-- <table class="table table-striped">
 
 
 <tbody><tr>
@@ -34,8 +34,11 @@
 </tr>
 </tbody>
 </table>
-</div>
+</div> --%>
+
+
+
+
 
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
 </html>

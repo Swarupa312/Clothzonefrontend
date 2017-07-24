@@ -6,8 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body>
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
 <c:forEach items="${prodlist}" var="product">
 <a href="<c:url value="/description/${product.prodid}"/>" class="Thumbnail">
 <img src="<c:url value='/resources/Prodimage/${product.prodid}.jpg'/>" height="400" width="400" class="thumbnail" />
@@ -19,4 +20,5 @@
 </table>
 </c:forEach>
 </body>
+
 </html>

@@ -35,7 +35,8 @@ public class Productcontroller {
 		System.out.println("--product page dispalying time-----");
 		List<Product> prodlist=productDao.getProductDetails();
 		m.addAttribute("prodlist",prodlist);
-		
+		List<Category> list=categoryDao.getCategoryDetails();
+		m.addAttribute("catdetail",list);
 		
 		return "showproduct";
 	}
@@ -43,14 +44,44 @@ public class Productcontroller {
 	@RequestMapping(value="/description/{prodid}")
 	public String productdesc(@PathVariable("prodid") int prodid,Model m)
 	{
+		String stock;
 		System.out.println("displaying decription page");
 		Product product=productDao.getProduct(prodid);
+		
+		if(product.getProdqty()>=1)
+		{
+			stock="In Stock";
+		}
+		else
+		{
+			stock="Out of stock!";
+		}
 		m.addAttribute("prodinfo",product);
-	
+		m.addAttribute("stock",stock);
 		return"description";
 	}
 	
-	@RequestMapping(value="/categorywise/{catid}")
+	@RequestMapping(value="/searchproduct", method=RequestMethod.POST)
+	public String searchprod(@RequestParam("SearchProduct") String SearchProduct,Model m)
+	{
+		System.out.println("entered");
+		List<Product>prodlist=productDao.getproductbyname(SearchProduct);
+		m.addAttribute("prodlist", prodlist);
+		return "showproduct";
+	}
+	
+	@RequestMapping(value="/sortbycategory/{catid}")
+	public String productdcategory(@PathVariable("catid") int catid,Model m)
+	{
+		System.out.println("categorywise");
+		List<Product> proinfo=productDao.getproductbyCatid(catid);
+		
+		m.addAttribute("prodlist",proinfo);
+		
+		return"showproduct";
+	}
+	
+	/*@RequestMapping(value="/categorywise/{catid}")
 	public String productdcategory(@PathVariable("catid") int catid,Model m)
 	{
 		System.out.println("categorywise");
@@ -59,7 +90,7 @@ public class Productcontroller {
 		m.addAttribute("prodlist",proinfo);
 		
 		return"categorywise";
-	}
+	}*/
 	
 	@RequestMapping("/product")
 	public String showProduct(Model m)
@@ -199,8 +230,23 @@ public class Productcontroller {
 	{
 		
 		Product product=productDao.getProduct(prodid);
+		boolean flag1=true;
+		if(productDao.checkproductid(prodid))
+		{
+		flag1=true;
+		}
+		else
+		{
+			flag1=false;
+		}
+		if(flag1)
+		{
 		productDao.deleteProduct(product);
-		
+		}
+		else
+		{
+			m.addAttribute("flag1",flag1);
+		}
 		Product product1=new Product();
 		m.addAttribute("product", product1);
 		m.addAttribute("catlist",this.getCatlist());

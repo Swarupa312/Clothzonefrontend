@@ -87,5 +87,30 @@ public class ProductDao
 	
 	
 	
+	
+	public boolean checkproductid(int prodid)
+	{
+		
+		Session session=sessionFactory.openSession();
+		Query query2=session.createQuery("from Cart where prodid="+prodid);
+		if(query2.list().isEmpty())
+		{
+		return true;
+		}
+		else
+		{
+		return false;
+		}
+	}
+	
+	public List<Product> getproductbyname(String prodname)
+	{
+		Session session=sessionFactory.openSession();
+		Query query2=session.createQuery("from Product where prodname='"+prodname+"'");
+		List<Product> list=query2.list();
+		
+		return list;
+	}
 
+	
 }

@@ -8,14 +8,14 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInnavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
 
-<body background="resources/image/new9.jpg">
+<body background="resources/image/bg1.jpg">
 
 
-
-<h2>welcome admin</h2>
-
+<font color="MIDNIGHTBLUE">
+<h2>welcome ${sessionScope.username}</h2>
+</font>
 </body>
 </html>

@@ -10,12 +10,12 @@
   <script src="resources/js/jquerymin.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="resources/image/new9.jpg">
-
+<body background="resources/image/bg1.jpg">
+<font color="MIDNIGHTBLUE"><h3>welcome ${sessionScope.username}</h3></font>
 <div class="container">
-<table class="table table-striped">
+<%-- <table class="table table-striped">
 
 
 <tbody><tr>
@@ -34,7 +34,11 @@
 </tr>
 </tbody>
 </table>
-</div>
+</div> --%>
+
+
+
+
 
 </body>
 </html>

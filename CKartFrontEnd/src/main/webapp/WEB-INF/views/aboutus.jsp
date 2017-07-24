@@ -14,7 +14,7 @@ div.gallery img {
   
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="resources/image/new9.jpg">
+<body background="resources/image/bg1.jpg">
 <div class="row">
 <div class="col-md-6">
 <div class="gallery">
@@ -23,7 +23,7 @@ div.gallery img {
 </div>
 <div class="col-md-6">
 
-<font color="LIGHTSALMON">Ten years ago, Constant Content was a pioneer in the space of the creation and sale of prewritten content on the web. Since then we have grown 
+<font color="MIDNIGHTBLUE" size="4px">Ten years ago, Constant Content was a pioneer in the space of the creation and sale of prewritten content on the web. Since then we have grown 
 
 
 from a small start-up to one of the Internet's largest and most established marketplaces for authority, original, SEO friendly content.

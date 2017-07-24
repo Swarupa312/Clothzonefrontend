@@ -18,6 +18,9 @@ public class Categorycontroller
 	@Autowired
 	CategoryDao categoryDao;
 	
+	@Autowired
+	ProductDao productDao;
+	
 	@RequestMapping("/Category")
 	public String showCategoryPage(Model m)
 	{
@@ -55,9 +58,27 @@ public class Categorycontroller
 	public String deleteCategory(@PathVariable("catid") int catid,Model m)
 	{
 		System.out.println("---Category Deleted----");
+		boolean flag1=true;
 		Category category=categoryDao.getCategory(catid);
+		List<Product>list1=productDao.getproductbyCatid(catid);
+		for(Product product:list1)
+		if(list1.isEmpty())
+		{
+			flag1=true;
+		}
+		else
+		{
+			flag1=false;
+		}
+		if(flag1)
+		{
 		categoryDao.deleteCategory(category);
-		
+		}
+		else
+		{
+			System.out.println("can not delete");
+			m.addAttribute("flag1",flag1);
+		}
 		Category category1=new Category();
 		m.addAttribute("category", category1);
 		List<Category> catlist=categoryDao.getCategoryDetails();

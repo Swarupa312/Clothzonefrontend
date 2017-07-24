@@ -6,27 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInUsernavbar.jsp"></jsp:include>
-</head>
-<body>
+<jsp:include page="navbar.jsp"></jsp:include>
 
-<body background="resources/image/new9.jpg">
+</head>
+
+<body background="resources/image/bg1.jpg">
 
 <div id="container">
 <div class="row">
-<div class="col-sm-6 col-md-3">
+<div class="col-md-6">
+<!-- <div class="col-sm-6 col-md-3"> -->
+<div class="thumbnail">
 <c:forEach items="${prodlist}" var="product">
-<a href="description/${product.prodid}" class="Thumbnail">
+<a href="description/${product.prodid}" class="thumbnail" class="col-lg-3">
 <img src="<c:url value="/resources/Prodimage/${product.prodid}.jpg"/>" />
 </a>
-<div class="caption">
+<div class="caption"><font color="MIDNIGHTBLUE">
 <h2>${product.prodname}</h2>
 <h4>${product.prodprc}</h4>
+</font>
 </div>
-
 </c:forEach>
+</div>
+</div>
+</div>
+</div>
+</body>
 
-</div>
-</div>
-</div>
 </html>

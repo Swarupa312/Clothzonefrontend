@@ -5,61 +5,72 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<jsp:include page="SignInnavbar.jsp"></jsp:include>
-<body background ="resources\image\new9.jpg">
+<jsp:include page="navbar.jsp"></jsp:include>
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
+<script type="text/javascript">
+function givemsg()
+{
+	var m=document.getElementById("setflag").value;
+	if(!m)
+		{
+		 alert("You can not delete!!");
+		}
+}
 
+</script>
 
 <c:if test="${flag}">
 	<form action="${pageContext.request.contextPath}/UpdateCategory" method="post">
-   ${pageContext.request.contextPath}
+   
 </c:if>
 <c:if test="${!flag}">
 <form action="AddCategory" method="post">
 </c:if>
-<font color="LIGHTSALMON">
+<font color="MIDNIGHTBLUE">
 <h2><center>Category manager</center></h2></font>
-	<table align="center" cellspacing="2">
+	<table align="center" cellspacing="5">
 		<tr>
 			<c:if test="${flag}">
 			<input type="hidden" name="catid" value="${category.catid}"/>
 			</c:if>
 		</tr>
 		<tr>
-			<td><font color="LIGHTSALMON">Category Name</font></td>
+			<td><font color="MIDNIGHTBLUE">Category Name</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catname" value="${category.catname}" /></td>
+				<td><input type="text" name="catname" value="${category.catname}" required /></td>
 			</c:if>
 			<c:if test="${!flag}">
-				<td><input type="text" name="catname" /></td>
+				<td><input type="text" name="catname" required /></td>
 			</c:if>
 		</tr>
+		<br>
 		<tr>
-			<td><font color="LIGHTSALMON">Category Description</font></td>
+			<td><font color="MIDNIGHTBLUE">Category Description</font></td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catdesc" value="${category.catdesc}" /></td>
+				<td><input type="text" name="catdesc" value="${category.catdesc}" required/></td>
 			</c:if>
 			<c:if test="${!flag}">
-			<td><input type="text" name="catdesc" /></td>
+			<td><input type="text" name="catdesc" required/></td>
 			</c:if>
-		</tr>
+		</tr><br><br>
 		<tr>
-		</table>
+		</table><br>
 		<br>
 		<font color="INDIGO">
 			<center><input type="submit" class="btn btn-primary" value="Submit" background="black" /></center></font>
 		
 		
-	
+	<br><br><br>
 
 </form>
-
+<font color="MIDNIGHTBLUE">
 <div class="container">
 
-<div class="table-responsive">
 
-<table class="table">
+
+<table class="table table-bordered">
 <thead>
-	<tr bgcolor="KHAKI">
+	<tr bgcolor="POWDERBLUE">
 		<td>Category ID</td>
 		<td>Category Name</td>
 		<td>Category Desc</td>
@@ -68,20 +79,23 @@
 	</thead>
 	<tbody>
 	<c:forEach items="${catdetail}" var="category">
-		<tr bgcolor="LEMONCHIFFON">
+		<tr>
 			<td>${category.catid}</td>
 			<td>${category.catname}</td>
 			<td>${category.catdesc}</td>
-			<td><a href="<c:url value="deleteCategory/${category.catid}"/>">Delete</a>
-				<a href="<c:url value="updateCategory/${category.catid}"/>">Update</a>
+			<td><a href="<c:url value="deleteCategory/${category.catid}"/>" onclick="givemsg()"><span class="glyphicon glyphicon-trash"></span></a>
+			&nbsp;&nbsp;	<a href="<c:url value="updateCategory/${category.catid}"/>"><span class="glyphicon glyphicon-edit"></span></a>
 			</td>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
+<c:set var="flag1" value="${flag1}"/>
+<input type="hidden" id="setflag" value='<c:out value="${flag1}"/>' >
 </div>
+
 </div>
 <!-- Completed Displaying Table -->
-
+</font>
 </body>
 </html>

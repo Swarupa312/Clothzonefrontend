@@ -1,4 +1,6 @@
 package com.CKartFrontEnd.controller;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,22 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.OnlineKartZone.CKartonline.Dao.CategoryDao;
 import com.OnlineKartZone.CKartonline.Dao.UserDao;
+import com.OnlineKartZone.CKartonline.Model.Category;
 import com.OnlineKartZone.CKartonline.Model.User;
 @Controller
 public class Pagecontroller
 {
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	CategoryDao categoryDao;
 	@RequestMapping("/")
-	public String showMainPage(HttpSession session)
+	public String showMainPage(HttpSession session,Model m)
 	{
 		
 		boolean loggedin=false;
 		session.setAttribute("loggedin",loggedin);
 		System.out.println("--Main Page dispalying-----");
+		
+		List<Category> list=categoryDao.getCategoryDetails();
+		m.addAttribute("catdetail",list);
 		return "main";
 	}
+	
+	
 	
 	@RequestMapping("/home")
 	public String showhomePage(HttpSession session)

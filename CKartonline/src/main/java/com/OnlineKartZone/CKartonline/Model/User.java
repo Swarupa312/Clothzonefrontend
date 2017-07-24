@@ -1,20 +1,42 @@
 package com.OnlineKartZone.CKartonline.Model;
+import java.io.Serializable;
+
+
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table
-public class User
+public class User 
 {
 	
 	@Id
+	@NotEmpty
+	@Length(min=5,max=10)
 	String uname;
 	boolean enabled=true;
-	String cname,uaddr,upass,uemail,umobile,urole;
+	@NotEmpty
+	String cname;
+	@NotEmpty
+	String uaddr;
+	String urole;
+	@NotEmpty
+	@Length(min=5,max=10)
+	String upass;
 
+	@NotEmpty
+	@Email
+	String uemail;
 	
+	@NotEmpty
+	@Length(min=10,max=10)
+	String umobile;
 
 	public String getUname() {
 		return uname;

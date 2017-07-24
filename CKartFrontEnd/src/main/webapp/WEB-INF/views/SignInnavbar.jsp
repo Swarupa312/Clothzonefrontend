@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <img src="resources/image/logo.png" width="70" height="85" align="right">
-<body background="resources/image/new9.jpg">
+<body background="resources/image/bg1.jpg">
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b>
 
 <h4><b>Mission,Vision,Values</b></h4>

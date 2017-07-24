@@ -11,13 +11,17 @@
 <title>Insert title here</title>
 </head>
 <img src="resources/image/logo.png" width="70" height="85" align="right">
-<body>
+<body background="resources/image/bg1.jpg">
 <font color="CRIMSON" face="Curlz MT" size="20" ><center><b>C-KART</b>
 
 <h4><b>Mission,Vision,Values</b></h4>
 </center></font>
 <hr size="30px" width="100%"></hr>
-<nav class="navbar navbar-inverse">
+<form action="index">
+<h4><font color="CRIMSON" face="TIMES NEW ROMAN">New password has been set successfully!!</font></h4>
+<input type="submit" class="btn btn-primary" value="Go Login">
+</form>
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="main">C-Kart</a>
@@ -38,6 +42,10 @@
        <li><a href="main"> Back </a></li>
     </ul>
           </div>
-          </nav>
+          </nav> -->
 </body>
 </html>
+
+
+
+

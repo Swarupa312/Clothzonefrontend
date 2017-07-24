@@ -46,7 +46,7 @@ background-color: #4CAF50;
 }
 </style>
 
-<body background ="resources\image\login.jpg">
+<body background ="resources\image\bg1.jpg">
 
 <form action="perform_login" method="post">
 

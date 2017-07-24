@@ -1,99 +1,108 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 
+<meta charset="UTF-8">
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="navbar.jsp"></jsp:include>
 
+<style type="text/css">
 
-<style>
-input[type=text], input[type=password] {
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+input[type=text],[type=password]{
+  width:60%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    }
+    input[type=textarea]
+    {
+    
+    width:70%;
+    }
 
-.cancelbtn {
-color: white;
-    padding: 15px 40px;
-    margin: 30px 0;
-    border: none;
-    cursor: pointer;
-   background-color: #f44336;
-    width:40%;
-} 
-.signupbtn {
-color: white;
-    padding: 15px 40px;
-    margin: 30px 0;
-    border: none;
-    cursor: pointer;
-background-color: #4CAF50;
-    float: center;
-    width: 40%;
-}
+
 </style>
 
 </head>
 
-<body background ="resources\image\login.jpg">
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
 
 <script type="text/javascript">
 function checkPass()
 {
-	var x=document.getElementById("pass").value;
-	var y=document.getElementById("cpass").value;
+	var x=document.getElementById("pass1").value;
+	var y=document.getElementById("pass2").value;
 	if(x!=y)
 	{
 		alert("both passwords should be same");
-		return false;
+		document.getElementById("pass2").focus();
+		document.getElementById("submit").disabled=false;
 	}
+
 	
-	}
-
-
+}
 </script>
 
-<form action="user" method="POST" onsubmit="return checkPass()">
-
 <div class="container">
-<p align="right">
-<label><font color="red"> *All fields are Necessary*</font></label><br></p>
-<label><b><font face="Garamond">Customer name</b></font></label><br>
-<input type="text" name="cname" required><br>
-<label><font face="Garamond"><b>Address</b></font></label><br>
-<input type="text" name="uaddr" required><br>
-<label><font face="Garamond"><b>User Name-*Generate new user name</b></font></label><br>
-<input type="text" name="uname" maxlength="5" required><br>
+<form:form action="AddUser" modelAttribute="user" method="post">
 
-<label><font face="Garamond"><b>Email Id</b></font></label><br>
-<input type="text" name="uemail" pattern="^[a-z0-9_]+@[a-z0-9.]+\.[a-z]{2,4}$" required><br>
-<label><font face="Garamond"><b> password</b></font></label><br>
-<input type="password" id="pass" name="upass"  maxlength="5" required><br>
-
-<label><font face="Garamond"><b>Confirm password</b></font></label><br>
-<input type="password" id="cpass" name="confirmpass" maxlength="5" required><br>
-
-<label><font face="Garamond"><b>Mobile no</b></font></label><br>
-<input type="text" name="umobile" maxlength="10" pattern="[789]{1}[0-9]{9}" required><br>
-
-</div>
-<center>
-<h4><input type="checkbox" checked="checked">I Agree<a href="#"><u>Terms and Privacy.</u></a></h3>
-<input type="button" class="cancelbtn" value="Cancel">&nbsp;&nbsp;&nbsp;
-<input type="submit" class="signupbtn"  value="user" ></center>
+<font color="MIDNIGHTBLUE">
+<p align="center">
+				<div class="row">
+				<div class="form-group col-md-8">
+               <label><b><font face="Garamond" size="4px">Customer name</font></b></label><br>
+               
+				<form:input path="cname"/>
+				<form:errors path="cname" cssStyle="color:red"></form:errors><br>
+				</div>
 				
-</form>
-
-   
-    
+				<div class="form-group col-md-8">
+				<label><b><font face="Garamond" size="4px">Customer address</font></b></label><br>
+				<form:textarea path="uaddr" rows="4" />
+				<form:errors path="uaddr" cssStyle="color:red"></form:errors><br>
+				</div>
+				<div class="form-group col-md-8">
+				<label><b><font face="Garamond" size="4px">User name</font></b></label><br>
+				<form:input path="uname" />
+				<form:errors path="uname" cssStyle="color:red"></form:errors><br>
+				</div>
+				<div class="form-group col-md-8">
+				<label><b><font face="Garamond" size="4px">Email address</font></b></label><br>
+				 <form:input path="uemail"  />
+				<form:errors path="uemail" cssStyle="color:red"></form:errors><br>
+				</div>
+				<div class="form-group col-md-8">
+				<label><font face="Garamond" size="4px"><b> password</b></font></label><br>
+				<form:password path="upass" id="pass1"/>
+				<form:errors path="upass" cssStyle="color:red"></form:errors><br>
+				</div>
+				<div class="form-group col-md-8">
+			<label><b><font face="Garamond" size="4px">Confirm password</font></b></label><br>
+				<input type="password" id="pass2" name="confirm_pass" onblur="checkPass()"><br>
+				</div>
+				<div class="form-group col-md-8">
+					<label><b><font face="Garamond" size="4px">Mobile number</font></b></label><br>
+				<form:input path="umobile" />
+				<form:errors path="umobile" cssStyle="color:red"></form:errors><br>
+				</div>
+				<form:hidden path="enabled" value="true" />
+				<form:hidden path="urole" value="ROLE_USER" />
+				
+				<div class="form-group col-md-8">
+			<button type="submit" id="submit" class="btn btn-success btn-lg">Sign Up</button>
+			<button type="submit"  class="btn btn-danger btn-lg">Cancel</button>
+			</div>
+		</div>
+			</p>
+			</font>
+			</div>
+			</form:form>
+   </div>
+   </div>
 </body>
 
 </html>

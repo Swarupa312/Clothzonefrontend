@@ -28,9 +28,9 @@ public class Cartcontroller
 	ProductDao productDao;
 	
 	@RequestMapping("/cart")
-	public String showcontactmePage(HttpSession session,Model m)
+	public String showcartPage(HttpSession session,Model m)
 	{
-		System.out.println("--ContactUs Page dispalying-----");
+		System.out.println("--Cart Page dispalying-----");
 		String username=(String)session.getAttribute("username");
 		List<Cart>list=cartDao.getCartDetails(username);
 		m.addAttribute("cartlist",list);

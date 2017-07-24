@@ -12,53 +12,46 @@
 
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="<c:url value='/resources/image/new9.jpg'/>">
-<font color="LIGHTSALMON">
-<center>
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
+<font color="MIDNIGHTBLUE" size="5px">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+
 <h2>description</h2>
 <br><br>
 
-</center>
-
-<!-- <div class="row">
-<div class="col-md-6"> -->
 <img src="<c:url value='/resources/Prodimage/${prodinfo.prodid}.jpg'/>" height="300" width="300" />
-</div>
-<!-- <div class="col-md-6">
-<div class="container"> -->
 
+<br><br>
+<ul>
 
-<center>
-<div class="container">
-
-<div class="table-responsive">
-
-<table class="table table-bordered">
-<tbody>
-
-<%-- <tr><td>product id</td><td>${prodinfo.prodid}</td></tr> --%>
-<tr><td>product name</td><td>${prodinfo.prodname}</td></tr>
-<tr><td>product description</td><td>${prodinfo.proddesc}</td></tr>
-<tr><td>product price</td><td>${prodinfo.prodprc}</td></tr>
+<li>product name:= ${prodinfo.prodname}</li>
+<li>description   :=   ${prodinfo.proddesc}</li>
+<li> price:=${prodinfo.prodprc}</li>
 <%-- <tr><td>product supplier</td><td>${prodinfo.supid}</td></tr> --%>
-<tr><td>product category</td><td>${prodinfo.catid}</td></tr>
-<tr><td>
+<li>category:= ${prodinfo.catid}</li>
+<li><font color="red" size="6px">${stock}</font></li>
+</ul>
+</div>
+</div>
 
 <form action="<c:url value="/addcart/${prodinfo.prodid}"/>"method="get">
-<input type="text" name="prodqty" class="form-control button-block"/>
-<input type="submit" class="btn btn-primary"  value="Go">
+<div class="row">
+<div class="col-md-6">
+Enter quantity<input type="text" name="prodqty" class="form-control-"/>
+</div><br>
+<div class="col-md-6">
+<input type="submit" class="btn btn-primary btn-lg" class="form-control" value="Add To cart">
+</div>
+
+</div>
 </form>
-</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</center>
-</div>
 
-
+</div>
 </font>
 
+
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
+
 </html>

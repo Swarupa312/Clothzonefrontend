@@ -11,16 +11,30 @@
 <title>Insert title here</title>
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="resources/image/new9.jpg">
+<body background="resources/image/bg1.jpg">
 
-<form action="<c:url value="/bill"/>" method="get">
+<script type="text/javascript">
+function checkstock()
+{
+	var s=document.getElementById("stock").value;
+	if(!s)
+		{
+		 alert("Ooops out of stock!!!");
+		}
+}
+
+</script>
+
+
+
+<form action="<c:url value="/bill"/>" modelAttribute="user" method="get" >
 <div class="container">
 
 <div class="table-responsive">
 
 <table class="table">
 <thead>
-	<tr bgcolor="KHAKI">
+	<tr  bgcolor="POWDERBLUE">
 		<td>Product name</td>
 		<td>Product Quantity</td>
 		<td>Subtotal</td>
@@ -29,7 +43,7 @@
 	</thead>
 <tbody>
 	<c:forEach items="${cartitems}" var="cart">
-		<tr bgcolor="LEMONCHIFFON">
+		<tr>
 			<td>${cart.prodname}</td>
 			<td>${cart.prodqty}</td>
 		 <td>${cart.prodprc*cart.prodqty}</td> 
@@ -42,29 +56,31 @@
 			</div>
 			
 			<br><br>
-		<font color="LIGHTSALMON" size="4">
+		<font color="MIDNIGHTBLUE" size="4">
 <label><font face="Garamond"><b>Payment Mode</b></font></label><br>
 <label class="radio-inline"><input type="radio" name="paymode" value="Creditcard"><span class="glyphicon glyphicon-credit-card"> Credit card</span></label>
 <label class="radio-inline"><input type="radio" name="paymode" value="NetBanking"><span class="glyphicon glyphicon-piggy-bank"> NetBanking</span></label>
 <label class="radio-inline"><input type="radio" name="paymode" value="CashOnDelivery"><span class="glyphicon glyphicon-usd">CashOnDelivery</span></label><br><br>
 <label><font face="Garamond"><b>Shipment address</b></font></label><br>
 <c:set var="shipmentaddress" value="${shippingaddress}"/>
-<textarea class="form-control" rows="4" name="shipmentaddress" value="<c:out value="${shipmentaddress}"/>"></textarea>
+<input type="text" class="form-control" name="shipmentaddress" value="<c:out value="${shipmentaddress}"/>">
 </font>
 	
 	<br><br>
 	<div class="table-responsive">
 			<font size="5px">
 			<table class="table">
-			<tr bgcolor="KHAKI"><c:set var="grandtotal"  value="${subtotal}"/> 
+			<tr><c:set var="grandtotal"  value="${subtotal}"/> 
 			<td>TOTAL PRICE RS:</td><td><input type="text" name="grandtotal" value="<c:out value="${grandtotal}"/>" readonly/>
 			</tr>
 			</table>
 			</font>
 			</div>
-		<center>	<input type="submit" class="btn btn-primary" value="PAY"></center>
+		<center>	<input type="submit" class="btn btn-primary" value="PAY" onclick="checkstock()"></center>
 </div>
+<c:set var="flag" value="${flag}"/>
+<input type="hidden" id="stock" value='<c:out value="${flag}"/>' >
 </form>
 </body>
-<jsp:include page="footer.jsp"></jsp:include>
+
 </html>

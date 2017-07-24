@@ -11,10 +11,10 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 
-<body background="resources/image/new9.jpg">
+<body background="resources/image/bg1.jpg">
 
 
-<font color="LIGHTSALMON">
+<font color="MIDNIGHTBLUE">
 <h2>welcome ${sessionScope.username}</h2>
 </font>
 </body>

@@ -20,8 +20,8 @@ input[type=text] {
   
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
-<body background="<c:url value='/resources/image/new9.jpg'/>">
-<font color="LIGHTSALMON">
+<body background="<c:url value='/resources/image/bg1.jpg'/>">
+<font color="MIDNIGHTBLUE" size="5px">
 <div class="container">
 <div class="row">
 
@@ -41,9 +41,9 @@ input[type=text] {
 <textarea class="form control" rows="8" name="msg"></textarea>
 </div>
 <div class="col-md-4">
-
+Contact us and we'll get back to you within 24 hours<br><br><br>
 Address<br>15/45,Baner,Pune(India)<br>
-Phone number<br>9874521575<br>
+<span  class="glyphicon glyphicon-earphone"></span>  9874521575<br>
 Email address<br>
 ckartinfo3@gmail.org
 
@@ -52,10 +52,15 @@ ckartinfo3@gmail.org
 
 </div>
 </div>
+
+
+
+
+
 <center>
 <div class="gallery">
 <a href="#"><img src="resources/image/fb.png" height="40px" width="40px"></a><a href="#"><img src="resources/image/ld.png" height="40px" width="40px"></a>
-
+<a href="http://twitter.com/"><img src="resources/image/twitter.png" height="40px" width="40px"></a>
 </div>
 
 </center>
