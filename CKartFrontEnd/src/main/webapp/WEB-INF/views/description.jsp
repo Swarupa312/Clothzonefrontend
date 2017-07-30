@@ -29,7 +29,6 @@
 <li>product name:= ${prodinfo.prodname}</li>
 <li>description   :=   ${prodinfo.proddesc}</li>
 <li> price:=${prodinfo.prodprc}</li>
-<%-- <tr><td>product supplier</td><td>${prodinfo.supid}</td></tr> --%>
 <li>category:= ${prodinfo.catid}</li>
 <li><font color="red" size="6px">${stock}</font></li>
 </ul>
@@ -53,5 +52,5 @@ Enter quantity<input type="text" name="prodqty" class="form-control-"/>
 
 
 </body>
-
+ 
 </html>

@@ -33,7 +33,7 @@ public class Categorycontroller
 		return "Category";
 	}
 	
-	@RequestMapping(value="/AddCategory",method=RequestMethod.POST)
+	@RequestMapping(value="/AddCategory",method=RequestMethod.POST)				//Add
 	public String addCategory(@RequestParam("catname") String catname,@RequestParam("catdesc") String catdesc,Model m)
 	{
 		System.out.println("---Add Category Starting-----");
@@ -54,7 +54,7 @@ public class Categorycontroller
 		return "Category";
 	}
 	
-	@RequestMapping(value="/deleteCategory/{catid}")
+	@RequestMapping(value="/deleteCategory/{catid}")		//delete
 	public String deleteCategory(@PathVariable("catid") int catid,Model m)
 	{
 		System.out.println("---Category Deleted----");
@@ -90,7 +90,7 @@ public class Categorycontroller
 		return "redirect:/Category";
 	}
 	
-	@RequestMapping(value="/updateCategory/{catid}")
+	@RequestMapping(value="/updateCategory/{catid}")				//get the record in textbox for updation
 	public String getUpdateCategory(@PathVariable("catid") int catid,Model m)
 	{
 		System.out.println("--- Getting Category Object to be Updated ---");
@@ -107,7 +107,7 @@ public class Categorycontroller
 		return "Category";
 	}
 	
-	@RequestMapping(value="/UpdateCategory",method=RequestMethod.POST)
+	@RequestMapping(value="/UpdateCategory",method=RequestMethod.POST)		//update that particular record 
 	public String updateCategory(@RequestParam("catid") int catid,@RequestParam("catname") String catname,@RequestParam("catdesc") String catdesc,Model m)
 	{
 		System.out.println("--Updating the Category----");

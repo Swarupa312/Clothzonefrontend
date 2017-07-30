@@ -80,17 +80,7 @@ public class Productcontroller {
 		
 		return"showproduct";
 	}
-	
-	/*@RequestMapping(value="/categorywise/{catid}")
-	public String productdcategory(@PathVariable("catid") int catid,Model m)
-	{
-		System.out.println("categorywise");
-		List<Product> proinfo=productDao.getproductbyCatid(catid);
-		
-		m.addAttribute("prodlist",proinfo);
-		
-		return"categorywise";
-	}*/
+
 	
 	@RequestMapping("/product")
 	public String showProduct(Model m)
@@ -106,7 +96,7 @@ public class Productcontroller {
 		return "product";
 	}
 	
-	@RequestMapping(value="/AddProduct",method=RequestMethod.POST)
+	@RequestMapping(value="/AddProduct",method=RequestMethod.POST)			//Add product
 	public String insertproduct(@ModelAttribute("product") Product product,Model m,@RequestParam("pimage") MultipartFile filedet)
 	{
 		System.out.println("Product inserted");
@@ -178,39 +168,6 @@ public class Productcontroller {
 	public String getupdateproduct(Model m,@ModelAttribute("product") Product product)
 	{
 		
-		/*Product product=productDao.getProduct(prodid);
-		
-		String path="C:\\Users\\owner\\New folder\\CKartFrontEnd\\src\\main\\webapp\\resources\\prodimage\\";
-		String idpath=product.getProdid()+".jpg";
-		String infopath=path+idpath;
-		
-		System.out.println(infopath);
-		File f=new File(infopath);
-	if (!filedet.isEmpty())
-	{
-		System.out.println("started");
-		try
-		{
-			byte b[]=filedet.getBytes();
-		FileOutputStream fos=new FileOutputStream(f);
-		BufferedOutputStream bos=new BufferedOutputStream(fos);
-		bos.write(b);
-		System.out.println("ended");
-		bos.close();
-		fos.close();
-		String imgpath="resources/Prodimage/"+idpath;
-		product.setImgpath(imgpath);
-		productDao.insertUpdateProduct(product);
-		}
-		
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
-		}*/
-		/*Product product=productDao.getProduct(prodid);*/
-	
-		
 		productDao.insertUpdateProduct(product);
 		m.addAttribute("product",new Product());
 		m.addAttribute("catlist", this.getCatlist());
@@ -225,7 +182,7 @@ public class Productcontroller {
 	
 	
 	
-	@RequestMapping(value="/deleteProduct/{prodid}")
+	@RequestMapping(value="/deleteProduct/{prodid}")					//Delete the product
 	public String deleteProduct(@PathVariable("prodid") int prodid,Model m)
 	{
 		

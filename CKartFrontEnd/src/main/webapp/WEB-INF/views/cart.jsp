@@ -14,11 +14,6 @@
 <body background="<c:url value='/resources/image/bg1.jpg'/>">
 
 
-
-
-
-
-
 <div class="table-responsive">
 <table class="table">
 <thead>
@@ -47,8 +42,11 @@
 			<td><img src="<c:url value='/resources/Prodimage/${cartitems.prodid}.jpg'/>" height="30" width="20" /></td>
 			<td><a href="<c:url value="/deletedcart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;
 			
-			<input type="submit" value="Update"></td></form>
-		<%-- 	<a href="<c:url value="/updatecart/${cartitems.cartitemid}"/>"><span class="glyphicon glyphicon-edit"></span></a></td> --%>
+			
+			<input type="submit" value="Update"></td>
+			
+			</form>
+		
 			
 		</tr>
 		<tr></tr>
@@ -63,10 +61,7 @@
 <a href="<c:url value="/main"/>"><span class="glyphicon glyphicon-menu-left"><input type="submit" class="btn btn-primary" value="Continue Shopping"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <a href="<c:url value="/placeorder"/>"><input type="submit" class="btn btn-primary" value="Place Order"></a></p>
-<%-- <p align="left">
-<a href="<c:url value="/showproduct"/>"><span class="glyphicon glyphicon-menu-left"></span></a></p> --%>
-<%-- <p align="right">
-<a href="<c:url value="/placeorder"/>"><span class="glyphicon glyphicon-check">Placeorder</span></a></p> --%>
+
 </center>
 </div>
 

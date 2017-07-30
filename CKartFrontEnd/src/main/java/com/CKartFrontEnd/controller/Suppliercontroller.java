@@ -32,7 +32,7 @@ public class Suppliercontroller
 		return "supplier";
 	}
 	
-	@RequestMapping(value="/AddSupplier",method=RequestMethod.POST)
+	@RequestMapping(value="/AddSupplier",method=RequestMethod.POST)			//Add supplier
 	public String addsupplier(@RequestParam("sname") String sname,@RequestParam("saddr")String saddr,Model m)
 	{
 		System.out.println(sname+"::"+saddr);
@@ -50,7 +50,7 @@ public class Suppliercontroller
 		return "supplier";
 		
 	}
-	@RequestMapping("/deleteSupplier/{supid}")
+	@RequestMapping("/deleteSupplier/{supid}")							//Delete Supplier
 	public String deletesupplier(@PathVariable("supid") int supid,Model m)
 	{
 		System.out.println("---Supplier Deleted----");
@@ -68,7 +68,7 @@ public class Suppliercontroller
 		
 	}
 	
-	@RequestMapping(value="/updateSupplier/{supid}")
+	@RequestMapping(value="/updateSupplier/{supid}")					//Retrieve the supplier for updation
 	public String getUpdatesupplier(@PathVariable("supid") int supid,Model m)
 	{
 		System.out.println("--- Getting supplier Object to be Updated ---");
@@ -85,7 +85,7 @@ public class Suppliercontroller
 		return "supplier";
 	}
 	
-	@RequestMapping(value="/UpdateSupplier",method=RequestMethod.POST)
+	@RequestMapping(value="/UpdateSupplier",method=RequestMethod.POST)		//Update the supplier
 	public String updatesupplier(@RequestParam("supid") int supid,@RequestParam("sname") String sname,@RequestParam("saddr") String saddr,Model m)
 	{
 		System.out.println("--Updating the supplier----");

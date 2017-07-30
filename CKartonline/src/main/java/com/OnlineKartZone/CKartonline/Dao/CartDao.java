@@ -81,7 +81,7 @@ public class CartDao
 				return cartid;
 			}
 	 }
-	 public Cart checkprodid(String uname,int prodid)
+	 public Cart checkprodid(String uname,int prodid)				//to check product id and username
 	 {
 		 Session session=sessionFactory.openSession();
 		 Query query2=session.createQuery("from Cart where uname='"+uname+"' and prodid="+prodid);
@@ -95,7 +95,7 @@ public class CartDao
 		
 	 }
 	 @Transactional
-	 public int  increamentqty(int prodqty,String uname,int prodid)
+	 public int  increamentqty(int prodqty,String uname,int prodid)			//Increment product quantity when product quantity is updated by admin
 	 {
 		 Session session=sessionFactory.openSession();
 		 Query query2=session.createQuery("select prodqty from Cart where uname='"+uname+"' and prodid="+prodid);
@@ -104,7 +104,7 @@ public class CartDao
 		  return prodqtyi;	 
 	 }
 	 
-	 public Cart getcartdetails(int cartitemid)
+	 public Cart getcartdetails(int cartitemid)			//cart details according to id; 
 		{
 			Session session=sessionFactory.openSession();
 			Query query=session.createQuery("from Cart where cartitemid="+cartitemid);//retrieve in list

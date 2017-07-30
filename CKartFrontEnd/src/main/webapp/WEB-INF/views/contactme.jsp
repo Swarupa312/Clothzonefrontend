@@ -27,17 +27,18 @@ input[type=text] {
 
 <div class="col-md-4">
 
-<label><b><font face="Garamond">Your name</font></b></label><br>
+<label><b><font face="Garamond">Your name -</font></b></label><br>
 <input type="text" name="name" required><br>
 
-<label><b><font face="Garamond">Email</font></b></label><br>
+<label><b><font face="Garamond">Email -</font></b></label><br>
 <input type="text" name="eid" required><br>
 
-<label><b><font face="Garamond">phone no</font></b></label><br>
+<label><b><font face="Garamond">phone no -</font></b></label><br>
 <input type="text" name="phno" required><br>
 </div>
-<div class="col-md-4">
-<label><b><font face="Garamond">Your message</font></b></label><br>
+<div class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;
+<label><b><font face="Garamond">Your message -</font></b></label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;
 <textarea class="form control" rows="8" name="msg"></textarea>
 </div>
 <div class="col-md-4">
@@ -59,8 +60,10 @@ ckartinfo3@gmail.org
 
 <center>
 <div class="gallery">
-<a href="#"><img src="resources/image/fb.png" height="40px" width="40px"></a><a href="#"><img src="resources/image/ld.png" height="40px" width="40px"></a>
-<a href="http://twitter.com/"><img src="resources/image/twitter.png" height="40px" width="40px"></a>
+<a href="http://facebook.com/"><i class="fa fa-facebook-official"></i></a>
+   <a href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+  <a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a>
+  <a href="http://instagram.com/"><i class="fa fa-instagram"></i></a>
 </div>
 
 </center>
@@ -68,4 +71,5 @@ ckartinfo3@gmail.org
 
 </font>
 </body>
+
 </html>

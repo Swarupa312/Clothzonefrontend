@@ -1,4 +1,6 @@
 package com.OnlineKartZone.CKartonline.Model;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 @Entity
 @Table
-public class Product<MultipartFile> 
+public class Product<MultipartFile> implements Serializable
 {
 	@Id
 	@GeneratedValue

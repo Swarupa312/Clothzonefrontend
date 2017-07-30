@@ -77,12 +77,41 @@ background-color:black;
     <span class="sr-only">Next</span>
   </a>
    </div>  <br><br>
-  <center> <font color="MIDNIGHTBLUE" size="7px">Cloth zone</font></center>
+  <center> <font color="MIDNIGHTBLUE" size="7px">About US</font></center>
      <section class="Aboutus" style="max-width:100%">
-  <font color="MIDNIGHTBLUE" size="4px">Ten years ago, Constant Content was a pioneer in the space of the creation and sale of prewritten content on the web. Since then we have grown from a small start-up to one of the Internet's largest and most established marketplaces for authority, original, SEO friendly content Over the years we have evolved with market trends and business needs, and while we continue to offer thousands of original prewritten articles through our catalog, our primary focus is on the creation of custom content based on client specific requests and needs.
-Today as part of the RevenueWire EcoSystem, we connect businesses and agencies to the best and most diverse selection of rigorously vetted writers online, and facilitate the building of unique teams of writers to serve specific content needs. With a roster of over 100,000 professional writers and 
+ <div class="row">
+<div class="col-md-6">
+<div class="gallery">
+<img src="resources/image/aboutus.jpg" class="img-circle" height="300" width="500">
+</div>
+</div>
+<div class="col-md-6">
+
+<font color="MIDNIGHTBLUE" size="4px">Ten years ago, Constant Content was a pioneer in the space of the creation and sale of prewritten content on the web. Since then we have grown 
+
+
+from a small start-up to one of the Internet's largest and most established marketplaces for authority, original, SEO friendly content.
+
+
+Over the years we have evolved with market trends and business needs, and while we continue to offer thousands of original prewritten articles
+
+ 
+through our catalog, our primary focus is on the creation of custom content based on client specific requests and needs.
+
+
+Today as part of the RevenueWire EcoSystem, we connect businesses and agencies to the best and most diverse selection of rigorously vetted writers 
+
+
+online, and facilitate the building of unique teams of writers to serve specific content needs. With a roster of over 100,000 professional writers and 
+
+
 more than 50,000 businesses world-wide who trust us with their content needs.
+
+
  we offer the most comprehensive high-quality article and custom content writing service on the Internet today.</font>
+</div>
+</div>
+</div>
   
 </section>
  <br><br>
@@ -91,31 +120,31 @@ more than 50,000 businesses world-wide who trust us with their content needs.
  <section class="team">
   <article class="third">
  
-    <img src="resources\image\person1.jpg" height="300" width="350">
+    <img src="resources\image\person1.jpg"  class="img-circle" width="304" height="236">
    
 
  
-    <img src="resources\image\person2.jpg" height="300" width="350">
+    <img src="resources\image\person2.jpg" class="img-circle" width="304" height="236">
      
 
-    <img src="resources\image\person3.jpg"  height="300" width="350">
+    <img src="resources\image\person3.jpg" class="img-circle" width="304" height="236">
+    
+    <img src="resources\image\person4.jpeg" class="img-circle" width="304" height="236">
     
   </article>
 </section> 
   <br><br>
-  
-  
-     
      
     <center> <font color="MIDNIGHTBLUE" size="7px"> Follow us on</font></center>
 <footer class="social">
-  <a href="#"><i class="fa fa-facebook-official"></i></a>
-   <a href="#"><i class="fa fa-twitter"></i></a>
-  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <center><a href="http://facebook.com/"><i class="fa fa-facebook-official"></i></a>
+   <a href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+  <a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a>
+  <a href="http://instagram.com/"><i class="fa fa-instagram"></i></a></center>
  
 </footer>
 </div>
-    
+  
 </body>
 
 </html>

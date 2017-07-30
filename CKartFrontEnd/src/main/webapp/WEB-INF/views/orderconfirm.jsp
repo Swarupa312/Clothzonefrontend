@@ -13,21 +13,8 @@
 </head>
 <body background="resources/image/bg1.jpg">
 
-<script type="text/javascript">
-function checkstock()
-{
-	var s=document.getElementById("stock").value;
-	if(!s)
-		{
-		 alert("Ooops out of stock!!!");
-		}
-}
 
-</script>
-
-
-
-<form action="<c:url value="/bill"/>" modelAttribute="user" method="get" >
+<form  action="<c:url value="/bill"/>" modelAttribute="user" method="get">
 <div class="container">
 
 <div class="table-responsive">
@@ -42,7 +29,7 @@ function checkstock()
 	</tr>
 	</thead>
 <tbody>
-	<c:forEach items="${cartitems}" var="cart">
+	<c:forEach items="${cartlist}" var="cart">
 		<tr>
 			<td>${cart.prodname}</td>
 			<td>${cart.prodqty}</td>
@@ -76,10 +63,9 @@ function checkstock()
 			</table>
 			</font>
 			</div>
-		<center>	<input type="submit" class="btn btn-primary" value="PAY" onclick="checkstock()"></center>
+		<center>	<input name="_eventId_submit" type="submit" class="btn btn-primary" value="PAY"></center>
 </div>
-<c:set var="flag" value="${flag}"/>
-<input type="hidden" id="stock" value='<c:out value="${flag}"/>' >
+
 </form>
 </body>
 

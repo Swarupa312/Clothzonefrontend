@@ -14,31 +14,7 @@
 </head>
 <body background="resources/image/bg1.jpg">
 <font color="MIDNIGHTBLUE"><h3>welcome ${sessionScope.username}</h3></font>
-<div class="container">
-<%-- <table class="table table-striped">
-
-
-<tbody><tr>
-<c:forEach items="${catdetail}" var="category"><td>
-<a href="categorywise/${category.catid}">${category.catname}
-</a></td>
-</c:forEach>
-
-</tr>
-<tr><td>
-<img src="resources/image/Latest-Indian-Wedding-Saree-Lehenga-Designs-2015-2016-1140x641.jpg" height="200" width="200">
-</td>
-<td>
-<img src="resources/image/formals.jpg" height="200" width="200"></td>
-<td><img src="resources/image/Craftsvilla.jpg" height="200" width="200"></td>
-</tr>
-</tbody>
-</table>
-</div> --%>
-
-
-
-
 
 </body>
+
 </html>

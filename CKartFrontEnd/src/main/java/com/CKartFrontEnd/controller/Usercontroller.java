@@ -43,38 +43,7 @@ public class Usercontroller
 		return "newregistration";
 	}
 	
-	/*@RequestMapping(value="/user",method=RequestMethod.POST)
-	public String adduserprocess( @RequestParam("uaddr") String uaddr ,@RequestParam("uname") String uname ,@RequestParam("cname") String cname,@RequestParam("uemail") String uemail,@RequestParam("umobile") String umobile,@RequestParam("upass") String upass,  Model m,  BindingResult result)
-	{
-		System.out.println("---Add User Starting-----");
-		
-		
- 
-        
-		
-		User user=new User();
-		user.setUaddr(uaddr);
-		user.setUname(uname);
-		user.setCname(cname);
-		user.setUemail(uemail);
-		user.setUmobile(umobile);
-		user.setUpass(upass);
-		user.setUrole("ROLE_USER");
-		user.setEnabled(true);
-		  
-		userDao.insertUpdateUser(user);
-		
-		List<User> list=userDao.getUserDetails();
-		m.addAttribute("userdetail",list);
-		boolean flag=false;
-		m.addAttribute("flag",flag);
-		System.out.println("---User Added----");
-		return "newregistration";
-		
-	}*/
-	
-	
-	@RequestMapping(value="/AddUser",method=RequestMethod.POST)
+	@RequestMapping(value="/AddUser",method=RequestMethod.POST)			//Add user
 	public String adduserprocess(@ModelAttribute("user" )@Valid User user,BindingResult result)
 	{
 		System.out.println("---Add User Starting-----");
@@ -89,11 +58,6 @@ public class Usercontroller
 			System.out.println("Valid user");
 		}
 		userDao.insertUpdateUser(user);
-
-		/*List<User> list=userDao.getUserDetails();
-		m.addAttribute("userdetail",list);
-		boolean flag=false;
-		m.addAttribute("flag",flag);*/
 		
 		System.out.println("---User Added----");
 		return "index";
@@ -134,7 +98,7 @@ public class Usercontroller
 		List<Category> list=categoryDao.getCategoryDetails();
 		m.addAttribute("catdetail",list);
 		return "User";
-		/*return "showproduct";*/
+		
 	}
 	}
   	return "index";

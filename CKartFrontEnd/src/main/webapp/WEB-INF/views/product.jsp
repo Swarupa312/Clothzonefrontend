@@ -173,7 +173,7 @@ function givemesaage()
 	
 	</tbody>
 </table>
-<!-- Completed Displaying Table -->
+
 </div>
 <c:set var="flag1" value="${flag1}"/>
 <input type="hidden" id="setflag" value='<c:out value="${flag1}"/>' >

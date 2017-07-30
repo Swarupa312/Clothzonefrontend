@@ -66,7 +66,7 @@ function checkPass()
 				<form:errors path="uaddr" cssStyle="color:red"></form:errors><br>
 				</div>
 				<div class="form-group col-md-8">
-				<label><b><font face="Garamond" size="4px">User name</font></b></label><br>
+				<label><b><font face="Garamond" size="4px">User name-It should be between 5-10 chars</font></b></label><br>
 				<form:input path="uname" />
 				<form:errors path="uname" cssStyle="color:red"></form:errors><br>
 				</div>
@@ -76,7 +76,7 @@ function checkPass()
 				<form:errors path="uemail" cssStyle="color:red"></form:errors><br>
 				</div>
 				<div class="form-group col-md-8">
-				<label><font face="Garamond" size="4px"><b> password</b></font></label><br>
+				<label><font face="Garamond" size="4px"><b> password-It should be between 5-10 chars</b></font></label><br>
 				<form:password path="upass" id="pass1"/>
 				<form:errors path="upass" cssStyle="color:red"></form:errors><br>
 				</div>

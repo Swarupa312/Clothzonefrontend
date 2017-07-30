@@ -1,4 +1,5 @@
 package com.OnlineKartZone.CKartonline.Model;
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table
-public class Cart
+public class Cart implements Serializable
 {
 	@Id
 	@GeneratedValue

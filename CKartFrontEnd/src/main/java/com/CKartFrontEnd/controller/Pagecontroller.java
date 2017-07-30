@@ -37,15 +37,6 @@ public class Pagecontroller
 	}
 	
 	
-	
-	@RequestMapping("/home")
-	public String showhomePage(HttpSession session)
-	{
-		System.out.println("--home Page dispalying-----");
-		
-		return "home";
-	}
-	
 	@RequestMapping("/aboutus")
 	public String showaboutusPage()
 	{
@@ -66,12 +57,6 @@ public class Pagecontroller
 		return "contactme";
 	}
 	
-	/*@RequestMapping("/newregistration")
-	public String shownewregistrationPage()
-	{
-		System.out.println("--NewRegistration  dispalying-----");
-		return "newregistration";
-	}*/
 	
 	@RequestMapping("/index")
 	public String showindexPage()

@@ -51,6 +51,7 @@ public class UserDao
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from User");		//retrieve in list
 		List<User> list=query.list();
+		
 		session.close();
 		return list;
 	}

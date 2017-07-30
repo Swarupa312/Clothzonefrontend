@@ -21,7 +21,7 @@
 <div id="container">
 <div class="row">
 <div class="col-md-6">
-<!-- <div class="col-sm-6 col-md-3"> -->
+
 <div class="thumbnail">
 <c:forEach items="${prodlist}" var="product">
 <a href="${pageContext.request.contextPath}/description/${product.prodid}" class="thumbnail" class="col-lg-3">
@@ -39,5 +39,5 @@
 </div>
 </form>
 </body>
-
+ 
 </html>

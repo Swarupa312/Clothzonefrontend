@@ -1,16 +1,13 @@
 package com.CKartFrontEnd.controller;
 
-import javax.servlet.http.HttpSession;
-
-import java.io.Serializable;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
+import org.springframework.webflow.execution.RequestContext;
 
-
-import com.OnlineKartZone.CKartonline.Model.Cart;
 import com.OnlineKartZone.CKartonline.Dao.CartDao;
 import com.OnlineKartZone.CKartonline.Dao.OrderConfirmDao;
 import com.OnlineKartZone.CKartonline.Dao.ProductDao;
@@ -36,57 +33,58 @@ public class OrderHandler
 	@Autowired
 	OrderConfirmDao orderconfirmDao;
 	
+	@Autowired
+	HttpSession session;
+	
 	public OrderConfirm initflow()
 	{
 		return new OrderConfirm();
 	}
 	
-public String orderdetails()
-	{
-		
 
-		System.out.println("displaying checkout page");
-		String username="chai";
+	public void orderdetails(RequestContext context)
+	{  
+		System.out.println("displaying checkout page"+session.getAttribute("username"));
+		 String username=(String) session.getAttribute("username");
+		 System.out.println(username);
+		 User user=userDao.getUser(username);
+		 String shippingaddress=user.getUaddr();
 		List<Cart> cartlist=cartDao.getCartDetails(username);
-		boolean flag=true;
-		String status;
+		
+		
 		int subtotal=0;
 		for(Cart cart:cartlist)
 		{
 			int prodqty=productDao.reduceprod(cart.getProdid(),cart.getProdqty());	//reduce the quantity in product
 			System.out.println(prodqty);
-			if(prodqty>=0)
+			if(prodqty>=0)															//it will check if it is in stock or not
 			{
 				Product product=productDao.getProduct(cart.getProdid());		
 				product.setProdqty(prodqty);
 				productDao.insertUpdateProduct(product);								//set the quantity in product
-				flag=true;
-			}
-			else
-			{
-				System.out.println("place order else");
-				flag=false;
+				
 			}
 			subtotal=subtotal+(cart.getProdprc()*cart.getProdqty());
 			
 		}
-			
-			if(flag)
-			{
-				User user=userDao.getUser(username);
-				String shippingaddress=user.getUaddr();
-				
-				status="success";
-			}
-			else
-			{
-				List<Cart>list=cartDao.getCartDetails(username);
-				status="failure";
-			
-			}
-			
-			return status;
-		}
+		context.getFlowScope().put("shippingaddress", shippingaddress);
+		context.getFlowScope().put("cartlist",cartlist);
+		context.getFlowScope().put("subtotal",subtotal);
 		
+			
+	}
+	
+	
+			
 }
+
+
+
+
+
+
+
+
+
+
 

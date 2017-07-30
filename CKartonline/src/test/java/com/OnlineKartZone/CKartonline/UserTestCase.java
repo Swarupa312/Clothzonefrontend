@@ -20,7 +20,7 @@ public class UserTestCase
 		UserDao userDao=(UserDao)context.getBean("userDao");
 		
 		
-		/*User user=new User();
+		User user=new User();
 		
 		user.setUname("AnujaM");
 		
@@ -39,17 +39,17 @@ public class UserTestCase
 		
 		userDao.insertUpdateUser(user);		
 		System.out.println("User Inserted");
-		*/
 		
 		
-		User user=userDao.getUser("AnujaM");
+		
+		/*User user=userDao.getUser("AnujaM");
 		System.out.println("User Name:"+user.getUname());
 		System.out.println("User address:"+user.getUaddr());
 		System.out.println("User Name:"+user.getCname());
 		System.out.println("User Name:"+user.getUpass());
 		System.out.println("User Name:"+user.getUemail());
 		System.out.println("User Name:"+user.getUmobile());
-		System.out.println("User Name:"+user.isEnabled());
+		System.out.println("User Name:"+user.isEnabled());*/
 		
 		
 		

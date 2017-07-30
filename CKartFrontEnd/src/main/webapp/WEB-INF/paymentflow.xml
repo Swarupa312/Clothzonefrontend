@@ -4,21 +4,15 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-<on-start>
-	  <evaluate expression="orderHandler.orderdetails()" result="flowScope.orderConfirm"/>
-	  
+	<on-start>
+	<evaluate expression="orderHandler.orderdetails(flowRequestContext)"/>
 	</on-start>
 
-<view-state id="start" view="orderconfirm" >
-	  <transition on="success" to="bill" />
-		<transition on="failure" to="start" />
+	<view-state id="start" view="orderconfirm">
+	 <transition on="submit" to="bill"/>
 	</view-state>
 
-
-
-
-
-
-
+<view-state id="bill" view="bill" model="orderConfirm">
+	</view-state>
 
 </flow>

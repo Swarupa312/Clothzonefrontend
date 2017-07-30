@@ -10,11 +10,7 @@
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/security/spring-tx-4.2.xsd">
 	<security:http auto-config="true" use-expressions="true">
-		<!-- <security:intercept-url pattern="/admin"
-			access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/productpage"
-			access="hasRole('ROLE_USER')" />
-			 -->
+		
 		
 			<security:form-login login-page="/index" default-target-url="/" 
 	 login-processing-url="/perform_login" authentication-failure-url="/failure"
@@ -29,9 +25,7 @@
 				users-by-username-query="select uname,upass, enabled from User where uname=?"
 				authorities-by-username-query="select uname,urole from User where uname =?"/>
 				
-				<!-- <user-service>
-				<user name="abc" password="123" authorities="ROLE_USER"/>
-			</user-service> -->
+	
 		</authentication-provider>
 	</authentication-manager>
 </beans:beans>

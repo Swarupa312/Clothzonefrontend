@@ -79,17 +79,20 @@ public class Cartcontroller
 		return"cart";
 		
 	}
-	@RequestMapping(value="updatecart/{cartitemid}",method=RequestMethod.GET)
+	@RequestMapping(value="updatecart/{cartitemid}",method=RequestMethod.GET)			//update
 	public String getupdatecart(@PathVariable("cartitemid") int cartitemid,@RequestParam("prodqty") int prodqty,Model m,HttpSession session)
 	{
 		Cart cart=cartDao.getCart(cartitemid);
 		int stock=productDao.getProduct(cart.getProdid()).getProdqty();
+		
 		if(stock<prodqty)
 		{
 			System.out.println("Out Of stock!!!!!");
+			
 		}
 		else
 		{
+			
 			cart.setProdqty(prodqty);
 			cartDao.updatecart(cart);
 			String username=(String)session.getAttribute("username");
@@ -97,11 +100,12 @@ public class Cartcontroller
 			List<Cart>list=cartDao.getCartDetails(username);
 			m.addAttribute("cartlist",list);
 			
+			
 		}	
 		return"redirect:/cart";
 	}
 	
-	@RequestMapping(value="/deletedcart/{cartitemid}")
+	@RequestMapping(value="/deletedcart/{cartitemid}")				//delete
 	public String getdeletecart(@PathVariable("cartitemid") int cartitemid,Model m,HttpSession session)
 	{
 		Cart cart=cartDao.getCart(cartitemid);
